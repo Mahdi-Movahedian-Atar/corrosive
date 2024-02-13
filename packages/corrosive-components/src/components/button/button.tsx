@@ -1,25 +1,19 @@
-import { component$, useStylesScoped$, Slot } from "@builder.io/qwik";
+import { component$, Slot } from "@builder.io/qwik";
 
 export interface ButtonProps {
-  size?: "small" | "medium" | "large";
+  class?: string;
+  disabled?: boolean;
+  label?: string
 }
-export const Button = component$<ButtonProps>(({ size = "medium" }) => {
-  useStylesScoped$(`
-    .size-small {
-      font-size: 10px;
-    }
-    .size-medium {
-      font-size: 14px;
-    }
-    .size-large {
-      font-size: 18px;
-    }
-  `);
+export const Button = component$<ButtonProps>((props) => {
   return (
     <button
-      class={"bb"}
+      class={props.class}
+      disabled={props.disabled}
     >
-      <Slot></Slot>
+      <div className={"align-middle justify-center m-2"}>
+        <Slot></Slot>
+      </div>
     </button>
   );
 });

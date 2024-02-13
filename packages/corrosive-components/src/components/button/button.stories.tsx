@@ -11,7 +11,9 @@ export default meta;
 
 export const Primary: Story = {
   args: {
-    size: "medium",
+    class: "bb",
+    disabled: false,
+    label: "bb"
   },
-  render: (props) => <Button {...props}>Some button</Button>,
+  render: (props) => <Button {...props}><h1 class={"m-9"}>bb</h1></Button>,
 };
