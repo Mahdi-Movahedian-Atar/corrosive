@@ -1,13 +1,13 @@
 # Qwik Library ⚡️
 
-- [Qwik Docs](https://qwik.builder.io/)
-- [Discord](https://qwik.builder.io/chat)
-- [Qwik on GitHub](https://github.com/BuilderIO/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
-- [Partytown](https://partytown.builder.io/)
-- [Mitosis](https://github.com/BuilderIO/mitosis)
-- [Builder.io](https://www.builder.io/)
+-   [Qwik Docs](https://qwik.builder.io/)
+-   [Discord](https://qwik.builder.io/chat)
+-   [Qwik on GitHub](https://github.com/BuilderIO/qwik)
+-   [@QwikDev](https://twitter.com/QwikDev)
+-   [Vite](https://vitejs.dev/)
+-   [Partytown](https://partytown.builder.io/)
+-   [Mitosis](https://github.com/BuilderIO/mitosis)
+-   [Builder.io](https://www.builder.io/)
 
 ---
 
@@ -24,9 +24,9 @@ Inside your project, you'll see the following directories and files:
     └── index.ts
 ```
 
-- `src/components`: Recommended directory for components.
+-   `src/components`: Recommended directory for components.
 
-- `index.ts`: The entry point of your component library, make sure all the public components are exported from this file.
+-   `index.ts`: The entry point of your component library, make sure all the public components are exported from this file.
 
 ## Development
 

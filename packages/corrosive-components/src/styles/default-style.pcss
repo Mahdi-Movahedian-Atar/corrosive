@@ -2,57 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-.body {
-  background: var(--secondary);
+body {
+    background: var(--secondary);
+    color: var(--primary);
 }
 
 .cc-resizablePanels-parent {
-  @apply flex h-full;
+    @apply flex h-full;
 }
 
 .cc-resizablePanels-draggable,
 .cc-resizablePanels-draggable-vertical {
-  background: var(--primary);
-  justify-content: center;
-  display: flex;
-  @apply content-center border-none p-1;
+    background: var(--primary);
+    justify-content: center;
+    display: flex;
+    @apply content-center border-none p-1;
 }
 
 .cc-resizablePanels-draggable:hover,
 .cc-resizablePanels-draggable-vertical:hover {
-  background: var(--accent);
+    background: var(--accent);
 }
 
 .cc-resizablePanels-draggable {
-  width: var(--width);
+    width: var(--width);
 }
 
 .cc-resizablePanels-draggable-vertical {
-  height: var(--width);
-  @apply w-full;
+    height: var(--width);
+    @apply w-full;
 }
 
 .cc-resizablePanels-content,
 .cc-resizablePanels-content-vertical {
-  background: var(--secondary);
-  @apply flex-none self-center border-none;
+    background: var(--secondary);
+    @apply flex-none self-center border-none;
 }
 
 .cc-resizablePanels-content {
-  height: calc(var(--width) * 4);
-  width: var(--width);
+    height: calc(var(--width) * 4);
+    width: var(--width);
 }
 
 .cc-resizablePanels-content-vertical {
-  height: var(--width);
-  width: calc(var(--width) * 4);
+    height: var(--width);
+    width: calc(var(--width) * 4);
 }
 
 .cc-resizablePanels-firstPanel,
 .cc-resizablePanels-secondPanel {
-  background-color: var(--secondary);
+    background-color: var(--secondary);
 }
 
 .cc-resizablePanels-secondPanel {
-  @apply flex-grow;
+    @apply flex-grow;
 }
