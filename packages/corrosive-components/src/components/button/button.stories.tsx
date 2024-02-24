@@ -13,7 +13,11 @@ export const Primary: Story = {
   args: {
     class: "bb",
     disabled: false,
-    label: "bb"
+    label: "bb",
   },
-  render: (props) => <Button {...props}><h1 class={"m-9"}>bb</h1></Button>,
+  render: (props) => (
+    <Button {...props}>
+      <h1 class={"m-9"}>bb</h1>
+    </Button>
+  ),
 };

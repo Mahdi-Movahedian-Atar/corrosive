@@ -1,6 +1,7 @@
 import { Parameters } from "storybook-framework-qwik";
 
-import "../src/global.css";
+import "../src/styles/default-resources.pcss";
+import "../src/styles/default-style.pcss";
 
 export const parameters: Parameters = {
   a11y: {
