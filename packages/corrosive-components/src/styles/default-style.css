@@ -1,0 +1,102 @@
+body {
+    background: var(--secondary);
+    color: var(--primary);
+}
+::selection {
+    background: var(--accent);
+}
+
+.cc-resizablePanels-parent,
+.cc-resizablePanels-parent-vertical {
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+}
+
+.cc-resizablePanels-parent-vertical {
+    flex-direction: column;
+}
+
+.cc-resizablePanels-disabled,
+.cc-resizablePanels-vertical-disabled,
+.cc-resizablePanels-draggable,
+.cc-resizablePanels-draggable-vertical {
+    justify-content: center;
+    align-content: center;
+    border: none;
+    display: flex;
+    border-radius: var(--corner);
+}
+
+.cc-resizablePanels-draggable,
+.cc-resizablePanels-disabled {
+    padding-left: var(--width);
+    padding-right: var(--width);
+}
+
+.cc-resizablePanels-draggable-vertical,
+.cc-resizablePanels-vertical-disabled {
+    padding-top: var(--width);
+    padding-bottom: var(--width);
+}
+
+.cc-resizablePanels-draggable,
+.cc-resizablePanels-draggable-vertical {
+    background: var(--primary);
+}
+
+.cc-resizablePanels-disabled,
+.cc-resizablePanels-vertical-disabled {
+    background: var(--tertiary);
+}
+
+.cc-resizablePanels-draggable:hover,
+.cc-resizablePanels-draggable-vertical:hover {
+    background: var(--tertiary);
+}
+
+.cc-resizablePanels-draggable:active,
+.cc-resizablePanels-draggable-vertical:active {
+    background: var(--accent);
+}
+
+.cc-resizablePanels-draggable {
+    width: var(--width);
+    height: 100%;
+}
+
+.cc-resizablePanels-draggable-vertical {
+    height: var(--width);
+    width: 100%;
+}
+
+.cc-resizablePanels-content,
+.cc-resizablePanels-content-vertical {
+    background: var(--secondary);
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: center;
+    justify-self: center;
+    border: none;
+    border-radius: var(--corner);
+}
+
+.cc-resizablePanels-content {
+    height: calc(var(--width) * 8);
+    width: var(--width);
+}
+
+.cc-resizablePanels-content-vertical {
+    height: var(--width);
+    width: calc(var(--width) * 8);
+}
+
+.cc-resizablePanels-firstPanel,
+.cc-resizablePanels-secondPanel {
+    background-color: var(--secondary);
+    display: flex;
+}
+
+.cc-resizablePanels-secondPanel {
+    display: flex;
+}

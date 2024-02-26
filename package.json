@@ -8,8 +8,10 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": ["./packages/*"],
   "dependencies": {
-    "@tauri-apps/cli": "^1.5.10"
+    "@tauri-apps/cli": "^1.5.10",
+    "corrosive-components": "workspace:*",
+    "vite-plugin-typescript-transform": "^1.2.2"
   }
 }

@@ -11,19 +11,21 @@ export default meta
 
 export const Primary: Story = {
     args: {
-        horizontal: false,
+        disabled: false,
+        vertical: false,
         defaultOffset: 50,
         min: 0,
         max: 100,
+        collapsableLeft: 0,
+        collapsableRight: 100,
         storageKey: undefined,
-        className: 'h-screen',
+        style: { height: '500px', width: '500px' },
+        classes: undefined,
     },
     render: (props) => (
-        <div>
-            <ResizablePanels {...props}>
-                <div q:slot={'firstPanel'}>First Panel</div>
-                <div q:slot={'secondPanel'}>Second Panel</div>
-            </ResizablePanels>
-        </div>
+        <ResizablePanels {...props}>
+            <div q:slot={'firstPanel'}>First Panel</div>
+            <div q:slot={'secondPanel'}>Second Panel</div>
+        </ResizablePanels>
     ),
 }

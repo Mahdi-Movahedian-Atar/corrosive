@@ -1,0 +1,10 @@
+:root {
+    --primary: #ffffff;
+    --secondary: #000000;
+    --tertiary: #838383;
+
+    --accent: #b03c21;
+
+    --width: 0.2rem;
+    --corner: 0.5rem;
+}
