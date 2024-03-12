@@ -7,4 +7,10 @@
 
     --width: 0.2rem;
     --corner: 0.5rem;
+
+    --small-icon: 0.5lh;
+    --medium-icon: 1lh;
+    --large-icon: 1.5lh;
+
+    transition: all 2s ease-in-out;
 }

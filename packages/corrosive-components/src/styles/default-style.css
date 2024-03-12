@@ -6,6 +6,8 @@ body {
     background: var(--accent);
 }
 
+/* resizable panels */
+
 .cc-resizablePanels-parent,
 .cc-resizablePanels-parent-vertical {
     display: flex;
@@ -62,11 +64,13 @@ body {
 
 .cc-resizablePanels-draggable {
     width: var(--width);
+    cursor: col-resize;
     height: 100%;
 }
 
 .cc-resizablePanels-draggable-vertical {
     height: var(--width);
+    cursor: row-resize;
     width: 100%;
 }
 
@@ -99,4 +103,64 @@ body {
 
 .cc-resizablePanels-secondPanel {
     display: flex;
+}
+
+/* ==========================treeView========================== */
+
+.cc-treeNode {
+    display: flex;
+    flex-direction: row;
+}
+
+.cc-treeNode:hover {
+    background: var(--accent);
+}
+
+.cc-treeNode-toggle {
+    cursor: pointer;
+}
+
+/* ==========================icons========================== */
+
+.cc-shortArrow-down {
+    mask: url('../icons/ShortArrow.svg');
+}
+
+.cc-shortArrow-right {
+    rotate: -90deg;
+    mask: url('../icons/ShortArrow.svg');
+}
+
+.cc-shortArrow-left {
+    rotate: 90deg;
+    mask: url('../icons/ShortArrow.svg');
+}
+
+.cc-shortArrow-up {
+    rotate: 180deg;
+    mask: url('../icons/ShortArrow.svg');
+}
+
+.cc-icon-small,
+.cc-icon-medium,
+.cc-icon-large {
+    background: var(--primary);
+    background-size: cover;
+    mask-size: cover;
+    display: inline-block;
+}
+
+.cc-icon-small {
+    width: var(--small-icon);
+    height: var(--small-icon);
+}
+
+.cc-icon-medium {
+    width: var(--medium-icon);
+    height: var(--medium-icon);
+}
+
+.cc-icon-large {
+    width: var(--large-icon);
+    height: var(--large-icon);
 }
