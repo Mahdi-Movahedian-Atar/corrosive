@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
-import { Button, type ButtonProps } from './button'
+import { ToggleButton, type ToggleButtonProps } from './toggle-button'
 import { $ } from '@builder.io/qwik'
 
-const meta: Meta<ButtonProps> = {
-    component: Button,
+const meta: Meta<ToggleButtonProps> = {
+    component: ToggleButton,
 }
 
-type Story = StoryObj<ButtonProps>
+type Story = StoryObj<ToggleButtonProps>
 
 export default meta
 
 export const Primary: Story = {
     args: {
+        value: false,
         disabled: false,
-        variant: 'solid',
         color: 'primary',
         raised: false,
         rounded: false,
@@ -22,23 +22,19 @@ export const Primary: Story = {
             height: 'fit-content',
             width: 'fit-content',
         },
-        onClick: $(() => {
-            console.log('click')
+        onChange: $((value) => {
+            console.log(value)
         }),
     },
     argTypes: {
-        variant: {
-            options: ['solid', 'outlined', 'text'],
-            control: { type: 'radio' },
-        },
         color: {
             options: ['success', 'error', 'warning', 'accent', 'primary'],
             control: { type: 'radio' },
         },
     },
     render: (props) => (
-        <Button {...props}>
+        <ToggleButton {...props}>
             <h1>Buttom</h1>
-        </Button>
+        </ToggleButton>
     ),
 }

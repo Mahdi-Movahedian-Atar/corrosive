@@ -1,20 +1,36 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
-import { Button, type ButtonProps } from './button'
+import {
+    ButtonGroup,
+    type ButtonGroupProps,
+    ButtonMembers,
+} from './button-group'
 import { $ } from '@builder.io/qwik'
 
-const meta: Meta<ButtonProps> = {
-    component: Button,
+const meta: Meta<ButtonGroupProps> = {
+    component: ButtonGroup,
 }
 
-type Story = StoryObj<ButtonProps>
+type Story = StoryObj<ButtonGroupProps>
 
 export default meta
 
 export const Primary: Story = {
     args: {
+        members: [
+            {
+                id: 0,
+                color: 'success',
+                onClick: $(() => {
+                    console.log('click')
+                }),
+            },
+            { id: 1 },
+            { id: 2 },
+        ],
         disabled: false,
         variant: 'solid',
         color: 'primary',
+        vertical: false,
         raised: false,
         rounded: false,
         className: '',
@@ -22,9 +38,6 @@ export const Primary: Story = {
             height: 'fit-content',
             width: 'fit-content',
         },
-        onClick: $(() => {
-            console.log('click')
-        }),
     },
     argTypes: {
         variant: {
@@ -37,8 +50,10 @@ export const Primary: Story = {
         },
     },
     render: (props) => (
-        <Button {...props}>
-            <h1>Buttom</h1>
-        </Button>
+        <ButtonGroup {...props}>
+            <h1 q:slot={'0'}>Buttom</h1>
+            <h1 q:slot={'1'}>Buttom</h1>
+            <h1 q:slot={'2'}>Buttom</h1>
+        </ButtonGroup>
     ),
 }

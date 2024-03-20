@@ -6,20 +6,21 @@ import {
     useSignal,
     useVisibleTask$,
     Slot,
-    CSSProperties, QRL,
+    CSSProperties,
+    QRL,
 } from '@builder.io/qwik'
 
 export interface ResizablePanelsProps {
     disabled?: boolean
     vertical?: boolean
-    onChange?: QRL<(offset: number) => {}>
+    onChange?: QRL<(offset: number) => void>
     min?: number
     max?: number
     defaultOffset?: number
     collapsableLeft?: number
     collapsableRight?: number
     storageKey?: string
-    classes?: string
+    className?: string
     style?: CSSProperties
 }
 
@@ -30,7 +31,7 @@ export const ResizablePanels = component$<ResizablePanelsProps>(
         min = 5,
         max = 95,
         storageKey = undefined,
-        classes = undefined,
+        className = undefined,
         style = { height: '100%', width: '100%' },
         defaultOffset = 50,
         collapsableLeft = 0,
@@ -121,7 +122,7 @@ export const ResizablePanels = component$<ResizablePanelsProps>(
         })
 
         return (
-            <div style={style} class={classes} ref={thisRef}>
+            <div style={style} class={className} ref={thisRef}>
                 <div
                     class={
                         vertical

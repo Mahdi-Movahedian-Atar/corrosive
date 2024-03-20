@@ -1,4 +1,10 @@
-import { component$, useSignal, $, Component, QRL } from '@builder.io/qwik'
+import {
+    component$,
+    useSignal,
+    $,
+    Component,
+    CSSProperties,
+} from '@builder.io/qwik'
 export interface TreeNode {
     id: any
     label: string
@@ -11,13 +17,15 @@ export interface TreeViewProps {
     disableAll?: boolean
     toggleComponent?: Component<{ node: TreeNode; isExpanded: boolean }>
     contentComponent?: Component<{ node: TreeNode; isExpanded: boolean }>
+    className?: string
+    style?: CSSProperties
 }
 
 const TComponent = $((props: { node: TreeNode; isExpanded: boolean }) => {
     return (
         <i
             style={{ marginRight: '.5rem' }}
-            className={`${props.isExpanded ? 'cc-shortArrow-down' : 'cc-shortArrow-left'} cc-icon-small`}
+            class={`${props.isExpanded ? 'cc-shortArrow-down' : 'cc-shortArrow-left'} cc-icon-small`}
         />
     )
 })
@@ -47,10 +55,10 @@ const TreeNodeComponent = component$<{
 
         return (
             <div>
-                <div className={'cc-treeNode'}>
+                <div class={'cc-treeNode'}>
                     <div
                         onClick$={handleToggle}
-                        className={'cc-treeNode-toggle'}
+                        class={'cc-treeNode-toggle'}
                         style={{
                             cursor:
                                 node.isToggleDisabled || isDisabled
@@ -94,9 +102,11 @@ export const TreeView = component$<TreeViewProps>(
         toggleComponent = TComponent,
         contentComponent = CComponent,
         disableAll = false,
+        className = undefined,
+        style = undefined,
     }) => {
         return (
-            <div>
+            <div class={className} style={style}>
                 {nodes.map((node) => (
                     <TreeNodeComponent
                         key={node.id}

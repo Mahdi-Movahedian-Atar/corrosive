@@ -1,12 +1,325 @@
 body {
-    background: var(--secondary);
-    color: var(--primary);
+    background: var(--secondary-0);
+    color: var(--primary-0);
+    transition: all ease-in-out;
 }
 ::selection {
-    background: var(--accent);
+    background: var(--accent-0);
 }
 
-/* resizable panels */
+/* ==========================Buttons========================== */
+
+.cc-button {
+    border-radius: var(--corner);
+    cursor: pointer;
+}
+
+.cc-button-rounded {
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.cc-button-raised {
+    box-shadow: 0 var(--width) var(--width) var(--secondary-2);
+}
+
+.cc-button-primary {
+    background: var(--primary-0);
+    border: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-button-primary:hover {
+    background: var(--primary-1);
+    border: var(--primary-1);
+    color: var(--primary-1);
+}
+
+.cc-button-primary:active {
+    background: var(--primary-2);
+    border: var(--primary-2);
+    color: var(--primary-2);
+}
+
+.cc-button-success {
+    background: var(--success-0);
+    border: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-button-success:hover {
+    background: var(--success-1);
+    border: var(--success-1);
+    color: var(--success-1);
+}
+
+.cc-button-success:active {
+    background: var(--success-2);
+    border: var(--success-2);
+    color: var(--success-2);
+}
+
+.cc-button-error {
+    background: var(--error-0);
+    border: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-button-error:hover {
+    background: var(--error-1);
+    border: var(--error-1);
+    color: var(--error-1);
+}
+
+.cc-button-error:active {
+    background: var(--error-2);
+    border: var(--error-2);
+    color: var(--error-2);
+}
+
+.cc-button-warning {
+    background: var(--warning-0);
+    border: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-button-warning:hover {
+    background: var(--warning-1);
+    border: var(--warning-1);
+    color: var(--warning-1);
+}
+
+.cc-button-warning:active {
+    background: var(--warning-2);
+    border: var(--warning-2);
+    color: var(--warning-2);
+}
+
+.cc-button-accent {
+    background: var(--accent-0);
+    border: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-button-accent:hover {
+    background: var(--accent-1);
+    border: var(--accent-1);
+    color: var(--accent-1);
+}
+
+.cc-button-accent:active {
+    background: var(--accent-2);
+    border: var(--accent-2);
+    color: var(--accent-2);
+}
+
+.cc-button-disabled {
+    background: var(--tertiary-0);
+    border: var(--tertiary-0);
+    color: var(--tertiary-0);
+    cursor: auto;
+}
+
+.cc-button-solid,
+.cc-button-solid:hover,
+.cc-button-solid:active {
+    border: unset;
+    color: var(--secondary-0);
+}
+
+.cc-button-text,
+.cc-button-text:hover,
+.cc-button-text:active {
+    border: unset;
+    background: unset;
+}
+
+.cc-button-outlined,
+.cc-button-outlined:hover,
+.cc-button-outlined:active {
+    border-style: solid;
+    border-width: var(--width);
+    background: unset;
+}
+
+/* ==========================Buttons Group========================== */
+
+.cc-buttonGroup,
+.cc-buttonGroup-rounded {
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+
+.cc-buttonGroup {
+    border-radius: var(--corner);
+}
+
+.cc-buttonGroup-rounded {
+    border-radius: 100%;
+}
+
+.cc-buttonGroup-raised {
+    box-shadow: 0 var(--width) var(--width) var(--secondary-2);
+}
+
+.cc-buttonGroup-content-primary {
+    background: var(--primary-0);
+    border: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-buttonGroup-content-primary:hover {
+    background: var(--primary-1);
+    border: var(--primary-1);
+    color: var(--primary-1);
+}
+
+.cc-buttonGroup-content-primary:active {
+    background: var(--primary-2);
+    border: var(--primary-2);
+    color: var(--primary-2);
+}
+
+.cc-buttonGroup-content-success {
+    background: var(--success-0);
+    border: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-buttonGroup-content-success:hover {
+    background: var(--success-1);
+    border: var(--success-1);
+    color: var(--success-1);
+}
+
+.cc-buttonGroup-content-success:active {
+    background: var(--success-2);
+    border: var(--success-2);
+    color: var(--success-2);
+}
+
+.cc-buttonGroup-content-error {
+    background: var(--error-0);
+    border: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-buttonGroup-content-error:hover {
+    background: var(--error-1);
+    border: var(--error-1);
+    color: var(--error-1);
+}
+
+.cc-buttonGroup-content-error:active {
+    background: var(--error-2);
+    border: var(--error-2);
+    color: var(--error-2);
+}
+
+.cc-buttonGroup-content-warning {
+    background: var(--warning-0);
+    border: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-buttonGroup-content-warning:hover {
+    background: var(--warning-1);
+    border: var(--warning-1);
+    color: var(--warning-1);
+}
+
+.cc-buttonGroup-content-warning:active {
+    background: var(--warning-2);
+    border: var(--warning-2);
+    color: var(--warning-2);
+}
+
+.cc-buttonGroup-content-accent {
+    background: var(--accent-0);
+    border: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-buttonGroup-content-accent:hover {
+    background: var(--accent-1);
+    border: var(--accent-1);
+    color: var(--accent-1);
+}
+
+.cc-buttonGroup-content-accent:active {
+    background: var(--accent-2);
+    border: var(--accent-2);
+    color: var(--accent-2);
+}
+
+.cc-buttonGroup-content-disabled {
+    background: var(--tertiary-0);
+    border: var(--tertiary-0);
+    color: var(--tertiary-0);
+    cursor: auto;
+}
+
+.cc-buttonGroup-vertical {
+    flex-direction: column;
+}
+
+.cc-buttonGroup-solid button:first-child,
+.cc-buttonGroup-text button:first-child,
+.cc-buttonGroup-outlined button:first-child {
+    border-left: unset;
+    border-top: unset;
+}
+
+.cc-buttonGroup-solid button:last-child,
+.cc-buttonGroup-text button:last-child,
+.cc-buttonGroup-outlined button:last-child {
+    border-right: unset;
+    border-bottom: unset;
+}
+
+.cc-buttonGroup-outlined {
+    border-style: solid;
+    border-width: var(--width);
+}
+
+.cc-buttonGroup-solid button,
+.cc-buttonGroup-solid button:hover,
+.cc-buttonGroup-solid button:active {
+    color: var(--secondary-0);
+    border: var(--secondary-0);
+}
+
+.cc-buttonGroup-text button,
+.cc-buttonGroup-text button:hover,
+.cc-buttonGroup-text button:active {
+    background: unset;
+}
+
+.cc-buttonGroup-outlined button,
+.cc-buttonGroup-outlined button:hover,
+.cc-buttonGroup-outlined button:active {
+    background: unset;
+}
+
+.cc-buttonGroup-horizontal button {
+    border-style: solid;
+    border-bottom: unset;
+    border-top: unset;
+    border-right-width: calc(var(--width) * 0.5);
+    border-left-width: calc(var(--width) * 0.5);
+}
+
+.cc-buttonGroup-vertical button {
+    border-style: solid;
+    border-left: unset;
+    border-right: unset;
+    border-top-width: calc(var(--width) * 0.5);
+    border-bottom-width: calc(var(--width) * 0.5);
+}
+
+/* ==========================resizable panels========================== */
 
 .cc-resizablePanels-parent,
 .cc-resizablePanels-parent-vertical {
@@ -44,28 +357,28 @@ body {
 
 .cc-resizablePanels-draggable,
 .cc-resizablePanels-draggable-vertical {
-    background: var(--primary);
+    background: var(--primary-0);
 }
 
 .cc-resizablePanels-disabled,
 .cc-resizablePanels-vertical-disabled {
-    background: var(--tertiary);
+    background: var(--tertiary-0);
 }
 
 .cc-resizablePanels-draggable:hover,
 .cc-resizablePanels-draggable-vertical:hover {
-    background: var(--tertiary);
+    background: var(--tertiary-0);
 }
 
 .cc-resizablePanels-draggable:active,
 .cc-resizablePanels-draggable-vertical:active {
-    background: var(--accent);
+    background: var(--accent-0);
 }
 
 .cc-resizablePanels-draggable {
     width: var(--width);
     cursor: col-resize;
-    height: 100%;
+    height: auto;
 }
 
 .cc-resizablePanels-draggable-vertical {
@@ -76,13 +389,13 @@ body {
 
 .cc-resizablePanels-content,
 .cc-resizablePanels-content-vertical {
-    background: var(--secondary);
+    background: var(--secondary-0);
     flex-grow: 0;
     flex-shrink: 0;
     align-self: center;
     justify-self: center;
     border: none;
-    border-radius: var(--corner);
+    border-radius: var(--width);
 }
 
 .cc-resizablePanels-content {
@@ -97,7 +410,7 @@ body {
 
 .cc-resizablePanels-firstPanel,
 .cc-resizablePanels-secondPanel {
-    background-color: var(--secondary);
+    background-color: var(--secondary-0);
     display: flex;
 }
 
@@ -113,7 +426,7 @@ body {
 }
 
 .cc-treeNode:hover {
-    background: var(--accent);
+    background: var(--accent-0);
 }
 
 .cc-treeNode-toggle {
@@ -144,7 +457,7 @@ body {
 .cc-icon-small,
 .cc-icon-medium,
 .cc-icon-large {
-    background: var(--primary);
+    background: var(--primary-0);
     background-size: cover;
     mask-size: cover;
     display: inline-block;

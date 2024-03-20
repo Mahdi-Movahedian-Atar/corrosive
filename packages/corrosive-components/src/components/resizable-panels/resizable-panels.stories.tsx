@@ -20,7 +20,7 @@ export const Primary: Story = {
         collapsableRight: 100,
         storageKey: undefined,
         style: { height: '500px', width: '500px' },
-        classes: undefined,
+        className: undefined,
     },
     render: (props) => (
         <ResizablePanels {...props}>

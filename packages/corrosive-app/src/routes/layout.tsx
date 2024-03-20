@@ -2,11 +2,9 @@ import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
-import Header from "../components/starter/header/header";
-import Footer from "../components/starter/footer/footer";
-
 import styles from "./styles.css?inline";
-import {ResizablePanels} from "corrosive-components/src/components/resizable-panels/resizable-panels";
+import { DefaultResources } from "corrosive-components";
+import { DefaultStyle } from "corrosive-components";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -27,18 +25,11 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 export default component$(() => {
   useStyles$(styles);
+  useStyles$(DefaultResources);
+  useStyles$(DefaultStyle);
   return (
-      <ResizablePanels>
-          <div q:slot={'firstPanel'}>
-              <Header />
-              <main>
-                  <Slot />
-              </main>
-              <Footer />
-          </div >
-
-      <div q:slot={'secondPanel'}>
-</div>
-      </ResizablePanels>
+      <div class={'h-screen w-screen'}>
+          <Slot />
+      </div>
   );
 });

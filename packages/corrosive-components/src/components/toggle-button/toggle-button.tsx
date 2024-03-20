@@ -1,36 +1,48 @@
-import { component$, CSSProperties, QRL, Slot } from '@builder.io/qwik'
+import {
+    $,
+    component$,
+    CSSProperties,
+    QRL,
+    Slot,
+    useSignal,
+} from '@builder.io/qwik'
 
-export interface ButtonProps {
+export interface ToggleButtonProps {
+    value?: boolean
     className?: string
     disabled?: boolean
     style?: CSSProperties
-    variant?: 'solid' | 'outlined' | 'text'
     color?: 'success' | 'error' | 'warning' | 'accent' | 'primary'
     rounded?: boolean
-    onClick?: QRL<() => void>
+    onChange?: QRL<(value: boolean) => void>
     raised?: boolean
 }
-export const Button = component$<ButtonProps>(
+export const ToggleButton = component$<ToggleButtonProps>(
     ({
+        value = false,
         disabled,
         className,
         style = {
             height: 'fit-content',
             width: 'fit-content',
         },
-        variant = 'solid',
         color = 'primary',
         rounded = false,
-        onClick,
+        onChange,
         raised,
     }) => {
+        const v = useSignal(value)
+
         return (
             <div class={className} style={style}>
                 <button
                     style={{ height: '100%', width: '100%' }}
-                    class={`cc-button-${variant} cc-button-${disabled ? 'disabled' : color} ${rounded ? 'cc-button-rounded' : 'cc-button'} ${raised && 'cc-button-raised'}`}
+                    class={`cc-button-${v.value ? 'solid' : 'outlined'} cc-button-${disabled ? 'disabled' : color} ${rounded ? 'cc-button-rounded' : 'cc-button'} ${raised && 'cc-button-raised'}`}
                     disabled={disabled}
-                    onClick$={onClick}
+                    onClick$={$(() => {
+                        v.value = !v.value
+                        onChange && onChange(v.value)
+                    })}
                 >
                     <Slot />
                 </button>

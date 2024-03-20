@@ -49,7 +49,8 @@ export const Primary: Story = {
             },
         ],
         disableAll: false,
+        className: undefined,
+        style: undefined,
     },
     render: (props) => <TreeView {...props} />,
-
 }
