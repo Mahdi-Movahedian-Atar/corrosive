@@ -7,6 +7,71 @@ body {
     background: var(--accent-0);
 }
 
+/* ==========================Toggle========================== */
+
+div.cc-slider {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+div.cc-slider input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: visible;
+}
+
+span.cc-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 25%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+span.cc-slider:before {
+    position: absolute;
+    content: "";
+    height: 200%;
+    width: 50%;
+    left: 0;
+    top: -50%;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + span.cc-slider {
+    background-color: #2196F3;
+}
+
+input:focus + span.cc-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + span.cc-slider:before {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+/* Rounded sliders */
+span.cc-slider.cc-round {
+    border-radius: 100vmax;
+}
+
+span.cc-slider.cc-round:before {
+    border-radius: 100vmax;
+}
+
 /* ==========================Buttons========================== */
 
 .cc-button {
@@ -15,7 +80,7 @@ body {
 }
 
 .cc-button-rounded {
-    border-radius: 100%;
+    border-radius: 100vmax;
     cursor: pointer;
 }
 
@@ -123,7 +188,8 @@ body {
 .cc-button-solid,
 .cc-button-solid:hover,
 .cc-button-solid:active {
-    border: unset;
+    border-style: solid;
+    border-width: var(--width);
     color: var(--secondary-0);
 }
 
@@ -157,7 +223,7 @@ body {
 }
 
 .cc-buttonGroup-rounded {
-    border-radius: 100%;
+    border-radius: 100vmax;
 }
 
 .cc-buttonGroup-raised {
@@ -265,56 +331,131 @@ body {
     flex-direction: column;
 }
 
-.cc-buttonGroup-solid button:first-child,
-.cc-buttonGroup-text button:first-child,
-.cc-buttonGroup-outlined button:first-child {
-    border-left: unset;
-    border-top: unset;
-}
-
-.cc-buttonGroup-solid button:last-child,
-.cc-buttonGroup-text button:last-child,
-.cc-buttonGroup-outlined button:last-child {
-    border-right: unset;
-    border-bottom: unset;
-}
-
 .cc-buttonGroup-outlined {
-    border-style: solid;
     border-width: var(--width);
 }
 
-.cc-buttonGroup-solid button,
-.cc-buttonGroup-solid button:hover,
-.cc-buttonGroup-solid button:active {
+.cc-buttonGroup-horizontal .cc-buttonGroup-solid,
+.cc-buttonGroup-horizontal .cc-buttonGroup-solid:hover,
+.cc-buttonGroup-horizontal .cc-buttonGroup-solid:active {
     color: var(--secondary-0);
-    border: var(--secondary-0);
+    margin-left: var(--width);
+    margin-right: var(--width);
 }
 
-.cc-buttonGroup-text button,
-.cc-buttonGroup-text button:hover,
-.cc-buttonGroup-text button:active {
+.cc-buttonGroup-vertical .cc-buttonGroup-solid,
+.cc-buttonGroup-vertical .cc-buttonGroup-solid:hover,
+.cc-buttonGroup-vertical .cc-buttonGroup-solid:active {
+    color: var(--secondary-0);
+    margin-top: var(--width);
+    margin-bottom: var(--width);
+}
+
+.cc-buttonGroup-horizontal button:first-child,
+.cc-buttonGroup-horizontal button:first-child:hover,
+.cc-buttonGroup-horizontal button:first-child:active {
+    border-top-left-radius: var(--corner);
+    border-bottom-left-radius: var(--corner);
+    border-left-width: var(--width);
+    margin-left: unset;
+}
+.cc-buttonGroup-vertical button:first-child,
+.cc-buttonGroup-vertical button:first-child:hover,
+.cc-buttonGroup-vertical button:first-child:active {
+    border-top-left-radius: var(--corner);
+    border-top-right-radius: var(--corner);
+    border-top-width: var(--width);
+    margin-top: unset;
+}
+.cc-buttonGroup-horizontal button:last-child,
+.cc-buttonGroup-horizontal button:last-child:hover,
+.cc-buttonGroup-horizontal button:last-child:active {
+    border-top-right-radius: var(--corner);
+    border-bottom-right-radius: var(--corner);
+    border-right-width: var(--width);
+    margin-right: unset;
+}
+.cc-buttonGroup-vertical button:last-child,
+.cc-buttonGroup-vertical button:last-child:hover,
+.cc-buttonGroup-vertical button:last-child:active {
+    border-bottom-right-radius: var(--corner);
+    border-bottom-left-radius: var(--corner);
+    border-bottom-width: var(--width);
+    margin-bottom: unset;
+}
+
+.cc-buttonGroup-rounded.cc-buttonGroup-horizontal button:first-child,
+.cc-buttonGroup-rounded.cc-buttonGroup-horizontal button:first-child:hover,
+.cc-buttonGroup-rounded.cc-buttonGroup-horizontal button:first-child:active {
+    border-top-left-radius: 100vmax;
+    border-bottom-left-radius: 100vmax;
+}
+.cc-buttonGroup-rounded.cc-buttonGroup-vertical button:first-child,
+.cc-buttonGroup-rounded.cc-buttonGroup-vertical button:first-child:hover,
+.cc-buttonGroup-rounded.cc-buttonGroup-vertical button:first-child:active {
+    border-top-left-radius: 100vmax;
+    border-top-right-radius: 100vmax;
+}
+.cc-buttonGroup-rounded.cc-buttonGroup-horizontal button:last-child,
+.cc-buttonGroup-rounded.cc-buttonGroup-horizontal button:last-child:hover,
+.cc-buttonGroup-rounded.cc-buttonGroup-horizontal button:last-child:active {
+    border-top-right-radius: 100vmax;
+    border-bottom-right-radius: 100vmax;
+}
+.cc-buttonGroup-rounded.cc-buttonGroup-vertical button:last-child,
+.cc-buttonGroup-rounded.cc-buttonGroup-vertical button:last-child:hover,
+.cc-buttonGroup-rounded.cc-buttonGroup-vertical button:last-child:active {
+    border-bottom-right-radius: 100vmax;
+    border-bottom-left-radius: 100vmax;
+}
+
+
+.cc-buttonGroup-horizontal .cc-buttonGroup-text:last-child,
+.cc-buttonGroup-horizontal .cc-buttonGroup-text:last-child:hover,
+.cc-buttonGroup-horizontal .cc-buttonGroup-text:last-child:active {
+    border-right-width: 0px;
+}
+.cc-buttonGroup-horizontal .cc-buttonGroup-text:first-child,
+.cc-buttonGroup-horizontal .cc-buttonGroup-text:first-child:hover,
+.cc-buttonGroup-horizontal .cc-buttonGroup-text:first-child:active {
+    border-left-width: 0px;
+}
+.cc-buttonGroup-vertical .cc-buttonGroup-text:last-child,
+.cc-buttonGroup-vertical .cc-buttonGroup-text:last-child:hover,
+.cc-buttonGroup-vertical .cc-buttonGroup-text:last-child:active {
+    border-bottom-width: 0px;
+}
+.cc-buttonGroup-vertical .cc-buttonGroup-text:first-child,
+.cc-buttonGroup-vertical .cc-buttonGroup-text:first-child:hover,
+.cc-buttonGroup-vertical .cc-buttonGroup-text:first-child:active {
+    border-top-width: 0px;
+}
+
+.cc-buttonGroup-text,
+.cc-buttonGroup-text:hover,
+.cc-buttonGroup-text:active {
+    border-width: 0px;
     background: unset;
 }
 
-.cc-buttonGroup-outlined button,
-.cc-buttonGroup-outlined button:hover,
-.cc-buttonGroup-outlined button:active {
+.cc-buttonGroup-outlined,
+.cc-buttonGroup-outlined:hover,
+.cc-buttonGroup-outlined:active {
     background: unset;
 }
 
-.cc-buttonGroup-horizontal button {
+.cc-buttonGroup-horizontal button,
+.cc-buttonGroup-horizontal button:hover,
+.cc-buttonGroup-horizontal button:active {
     border-style: solid;
-    border-bottom: unset;
-    border-top: unset;
     border-right-width: calc(var(--width) * 0.5);
     border-left-width: calc(var(--width) * 0.5);
 }
 
-.cc-buttonGroup-vertical button {
+.cc-buttonGroup-vertical button,
+.cc-buttonGroup-vertical button:hover,
+.cc-buttonGroup-vertical button:active {
     border-style: solid;
-    border-left: unset;
-    border-right: unset;
     border-top-width: calc(var(--width) * 0.5);
     border-bottom-width: calc(var(--width) * 0.5);
 }

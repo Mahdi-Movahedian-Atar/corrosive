@@ -35,7 +35,7 @@ export const ButtonGroup = component$<ButtonGroupProps>(
     }) => {
         return (
             <div
-                class={`${vertical ? 'cc-buttonGroup-vertical' : 'cc-buttonGroup-horizontal'} cc-buttonGroup-${variant} ${raised && 'cc-buttonGroup-raised'} ${rounded ? 'cc-buttonGroup-rounded' : 'cc-buttonGroup'} ${className}`}
+                class={`${vertical ? 'cc-buttonGroup-vertical' : 'cc-buttonGroup-horizontal'} ${raised && 'cc-buttonGroup-raised'} ${rounded ? 'cc-buttonGroup-rounded' : 'cc-buttonGroup'} ${className}`}
                 style={style}
             >
                 {members.map((value) => {
@@ -43,7 +43,7 @@ export const ButtonGroup = component$<ButtonGroupProps>(
 
                     return (
                         <button
-                            className={`${vertical ? 'cc-buttonGroup-vertical' : 'cc-buttonGroup-horizontal'} cc-buttonGroup-content-${d ? 'disabled' : value.color ? value.color : color}`}
+                            className={`${vertical ? 'cc-buttonGroup-vertical' : 'cc-buttonGroup-horizontal'} cc-buttonGroup-content-${d ? 'disabled' : value.color ? value.color : color} cc-buttonGroup-${variant}`}
                             onClick$={value.onClick}
                             disabled={d}
                         >
