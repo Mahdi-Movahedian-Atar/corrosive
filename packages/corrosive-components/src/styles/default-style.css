@@ -1,15 +1,242 @@
 body {
     background: var(--secondary-0);
     color: var(--primary-0);
-    transition: all ease-in-out;
 }
 ::selection {
     background: var(--accent-0);
 }
+::selection:focus {
+    background: var(--accent-0);
+}
+* {
+    -webkit-transition:
+        0.15s all ease-in-out,
+        width 0s,
+        height 0s;
+    transition:
+        0.15s all ease-in-out,
+        width 0s,
+        height 0s;
+}
 
 /* ==========================Toggle========================== */
 
-div.cc-slider {
+.cc-checkbox,
+.cc-radio,
+.cc-slider {
+    width: 100%;
+    height: 100%;
+}
+
+.cc-toggle-primary span,
+.cc-toggle-primary input:checked + span:after {
+    background: var(--secondary-0);
+    border: var(--primary-0);
+}
+.cc-toggle-primary:hover span:after,
+.cc-toggle-primary:hover input:checked + span {
+    background: var(--secondary-1);
+    border: var(--primary-2);
+}
+.cc-toggle-primary:hover span,
+.cc-toggle-primary:hover input:checked + span:after {
+    background: var(--primary-2);
+    border: var(--secondary-1);
+}
+.cc-toggle-primary span:after,
+.cc-toggle-primary input:checked + span {
+    background: var(--primary-0);
+    border: var(--secondary-0);
+}
+.cc-toggle-success span,
+.cc-toggle-success input:checked + span:after {
+    background: var(--success-0);
+    border: var(--success-2);
+}
+.cc-toggle-success:hover span:after,
+.cc-toggle-success:hover input:checked + span {
+    background: var(--success-1);
+    border: var(--success-2);
+}
+.cc-toggle-success:hover span,
+.cc-toggle-success:hover input:checked + span:after {
+    background: var(--success-2);
+    border: var(--success-1);
+}
+.cc-toggle-success span:after,
+.cc-toggle-success input:checked + span {
+    background: var(--success-2);
+    border: var(--success-0);
+}
+.cc-toggle-error span,
+.cc-toggle-error input:checked + span:after {
+    background: var(--error-0);
+    border: var(--error-2);
+}
+.cc-toggle-error:hover span:after,
+.cc-toggle-error:hover input:checked + span {
+    background: var(--error-1);
+    border: var(--error-2);
+}
+.cc-toggle-error:hover span,
+.cc-toggle-error:hover input:checked + span:after {
+    background: var(--error-2);
+    border: var(--error-1);
+}
+.cc-toggle-error span:after,
+.cc-toggle-error input:checked + span {
+    background: var(--error-2);
+    border: var(--error-0);
+}
+.cc-toggle-warning span,
+.cc-toggle-warning input:checked + span:after {
+    background: var(--warning-0);
+    border: var(--warning-2);
+}
+.cc-toggle-warning:hover span:after,
+.cc-toggle-warning:hover input:checked + span {
+    background: var(--warning-1);
+    border: var(--warning-2);
+}
+.cc-toggle-warning:hover span,
+.cc-toggle-warning:hover input:checked + span:after {
+    background: var(--warning-2);
+    border: var(--warning-1);
+}
+.cc-toggle-warning span:after,
+.cc-toggle-warning input:checked + span {
+    background: var(--warning-2);
+    border: var(--warning-0);
+}
+.cc-toggle-accent span,
+.cc-toggle-accent input:checked + span:after {
+    background: var(--accent-0);
+    border: var(--accent-2);
+}
+.cc-toggle-accent:hover span:after,
+.cc-toggle-accent:hover input:checked + span {
+    background: var(--accent-1);
+    border: var(--accent-2);
+}
+.cc-toggle-accent:hover span,
+.cc-toggle-accent:hover input:checked + span:after {
+    background: var(--accent-2);
+    border: var(--accent-1);
+}
+.cc-toggle-accent span:after,
+.cc-toggle-accent input:checked + span {
+    background: var(--accent-2);
+    border: var(--accent-0);
+}
+.cc-toggle-disabled span,
+.cc-toggle-disabled input:checked + span:after {
+    background: var(--tertiary-1);
+    border: var(--tertiary-2);
+}
+.cc-toggle-disabled span:after,
+.cc-toggle-disabled input:checked + span {
+    background: var(--tertiary-2);
+    border: var(--tertiary-1);
+}
+
+.cc-radio {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cc-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.cc-radio span,
+.cc-radio:hover span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border-width: var(--width);
+    border-style: solid;
+}
+
+.cc-radio span:after,
+.cc-radio:hover span:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.cc-radio input:checked ~ span:after {
+    display: block;
+}
+
+.cc-radio span:after {
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.cc-checkbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cc-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.cc-checkbox span,
+.cc-checkbox:hover span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-width: var(--width);
+    border-style: solid;
+    border-radius: var(--corner);
+}
+
+.cc-checkbox span:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.cc-checkbox input:checked ~ span:after {
+    display: inline-block;
+    mask-size: cover;
+}
+
+.cc-checkbox span:after {
+    margin: 10%;
+    width: 80%;
+    height: 80%;
+    mask: url('../icons/Check.svg');
+}
+
+.cc-slider {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -17,14 +244,17 @@ div.cc-slider {
     overflow: visible;
 }
 
-div.cc-slider input {
+.cc-slider input {
     opacity: 0;
     width: 0;
     height: 0;
     overflow: visible;
 }
 
-span.cc-slider {
+.cc-slider span,
+.cc-slider:hover span,
+.cc-slider input:checked + span,
+.cc-slider:hover input:checked + span {
     position: absolute;
     cursor: pointer;
     top: 25%;
@@ -32,44 +262,35 @@ span.cc-slider {
     right: 0;
     bottom: 0;
     height: 50%;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    border-width: var(--width);
+    border-style: solid;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 100vmax;
 }
 
-span.cc-slider:before {
+.cc-slider span:after,
+.cc-slider:hover span:after {
     position: absolute;
-    content: "";
+    content: '';
     height: 200%;
     width: 50%;
-    left: 0;
+    left: calc(-1 * var(--width));
     top: -50%;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    border-width: var(--width);
+    border-style: solid;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 100vmax;
 }
 
-input:checked + span.cc-slider {
-    background-color: #2196F3;
-}
-
-input:focus + span.cc-slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + span.cc-slider:before {
+.cc-slider input:checked + span:after,
+.cc-slider:hover input:checked + span:after {
+    border-width: var(--width);
+    border-style: solid;
     -webkit-transform: translateX(100%);
     -ms-transform: translateX(100%);
     transform: translateX(100%);
-}
-
-/* Rounded sliders */
-span.cc-slider.cc-round {
-    border-radius: 100vmax;
-}
-
-span.cc-slider.cc-round:before {
-    border-radius: 100vmax;
 }
 
 /* ==========================Buttons========================== */
@@ -95,15 +316,15 @@ span.cc-slider.cc-round:before {
 }
 
 .cc-button-primary:hover {
-    background: var(--primary-1);
-    border: var(--primary-1);
-    color: var(--primary-1);
-}
-
-.cc-button-primary:active {
     background: var(--primary-2);
     border: var(--primary-2);
     color: var(--primary-2);
+}
+
+.cc-button-primary:active {
+    background: var(--tertiary-2);
+    border: var(--tertiary-2);
+    color: var(--tertiary-2);
 }
 
 .cc-button-success {
@@ -207,6 +428,215 @@ span.cc-slider.cc-round:before {
     border-width: var(--width);
     background: unset;
 }
+/* ==========================Input========================== */
+
+.cc-input input, .cc-input-rounded input{
+    background: unset;
+    border: unset;
+    outline: unset;
+    color: inherit;
+    flex: auto;
+    width: 100%;
+}
+
+.cc-input, .cc-input-rounded{
+    position: relative;
+    cursor: text;
+    padding: 0.5rem;
+    font-size: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.cc-input {
+    border-radius: var(--corner);
+}
+
+.cc-input-rounded {
+    border-radius: 100vmax;
+}
+
+.cc-input-raised {
+    box-shadow: 0 var(--width) var(--width) var(--secondary-2);
+}
+
+.cc-input-primary {
+    background: var(--primary-0);
+    border: var(--primary-0);
+    color: var(--tertiary-1);
+}
+.cc-input-primary input::placeholder {
+    color: var(--tertiary-1);
+}
+.cc-input-primary:hover,
+.cc-input-solid.cc-input-primary:hover ~ .cc-input-label {
+    background: var(--primary-2);
+    border: var(--primary-2);
+}
+.cc-input-primary:active,
+.cc-input-solid.cc-input-primary:active ~ .cc-input-label {
+    background: var(--tertiary-2);
+    border: var(--tertiary-2);
+}
+
+.cc-input-success {
+    background: var(--success-0);
+    border: var(--success-0);
+    color: var(--success-1);
+}
+.cc-input-success input::placeholder {
+    color: var(--success-1);
+}
+.cc-input-success:hover,
+.cc-input-solid.cc-input-success:hover ~ .cc-input-label {
+    background: var(--success-1);
+    border: var(--success-1);
+}
+.cc-input-success:active,
+.cc-input-solid.cc-input-success:active ~ .cc-input-label {
+    background: var(--success-2);
+    border: var(--success-2);
+}
+
+.cc-input-error {
+    background: var(--error-0);
+    border: var(--error-0);
+    color: var(--error-1);
+}
+.cc-input-error input::placeholder {
+    color: var(--error-1);
+}
+.cc-input-error:hover,
+.cc-input-solid.cc-input-error:hover ~ .cc-input-label {
+    background: var(--error-1);
+    border: var(--error-1);
+}
+.cc-input-error:active,
+.cc-input-solid.cc-input-error:active ~ .cc-input-label {
+    background: var(--error-2);
+    border: var(--error-2);
+}
+
+.cc-input-warning {
+    background: var(--warning-0);
+    border: var(--warning-0);
+    color: var(--warning-1);
+}
+.cc-input-warning input::placeholder {
+    color: var(--warning-1);
+}
+.cc-input-warning:hover,
+.cc-input-solid.cc-input-warning:hover ~ .cc-input-label {
+    background: var(--warning-1);
+    border: var(--warning-1);
+}
+.cc-input-warning:active,
+.cc-input-solid.cc-input-warning:active ~ .cc-input-label {
+    background: var(--warning-2);
+    border: var(--warning-2);
+}
+
+.cc-input-accent {
+    background: var(--accent-0);
+    border: var(--accent-0);
+    color: var(--accent-1);
+}
+.cc-input-accent input::placeholder {
+    color: var(--accent-1);
+}
+.cc-input-accent:hover,
+.cc-input-solid.cc-input-accent:hover ~ .cc-input-label {
+    background: var(--accent-1);
+    border: var(--accent-1);
+}
+.cc-input-accent:active,
+.cc-input-solid.cc-input-accent:active ~ .cc-input-label {
+    background: var(--accent-2);
+    border: var(--accent-2);
+}
+
+.cc-input-disabled {
+    background: var(--tertiary-0);
+    border: var(--tertiary-0);
+    color: var(--tertiary-2);
+    cursor: auto;
+}
+.cc-input-disabled input::placeholder {
+    color: var(--tertiary-2);
+}
+.cc-input-solid,
+.cc-input-solid:hover,
+.cc-input-solid:active,
+.cc-input-solid:focus-visible {
+    border-style: solid;
+    outline: none;
+    border-width: var(--width);
+    color: var(--secondary-0);
+}
+.cc-input-solid input::placeholder {
+    color: var(--secondary-0);
+}
+
+.cc-input-text,
+.cc-input-text:hover,
+.cc-input-text:active,
+.cc-input-text:focus-visible {
+    border: unset;
+    outline: none;
+    border-bottom: var(--width) solid;
+    background: unset;
+}
+
+.cc-input-outlined,
+.cc-input-outlined:hover,
+.cc-input-outlined:active,
+.cc-input-outlined:focus-visible {
+    border-style: solid;
+    outline: none;
+    border-width: var(--width);
+    background: unset;
+}
+
+.cc-input-label {
+    position: absolute;
+    pointer-events: none;
+    width: fit-content;
+    height: min-content;
+    top: 0;
+    border-radius: var(--corner);
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.cc-input-outlined .cc-input-label,
+.cc-input-text .cc-input-label {
+    background: unset;
+    border: unset;
+}
+
+input:placeholder-shown ~ .cc-input-label{
+    background: none;
+    font-size: 0;
+    border-style: none;
+}
+
+.cc-input-outlined input:not(:placeholder-shown) ~ .cc-input-label,
+.cc-input-text input:not(:placeholder-shown) ~ .cc-input-label {
+    top: -1rem;
+    border: solid var(--width);
+    background: var(--secondary-0);
+    display: inline-block;
+}
+.cc-input-solid .cc-input-label,
+.cc-input-solid input:not(:placeholder-shown) ~ .cc-input-label {
+    color: var(--secondary-0);
+}
+.cc-input-solid input:not(:placeholder-shown) ~ .cc-input-label {
+    top: -1rem;
+    border: solid var(--width) var(--secondary-0);
+    display: inline-block;
+}
 
 /* ==========================Buttons Group========================== */
 
@@ -234,24 +664,26 @@ span.cc-slider.cc-round:before {
     background: var(--primary-0);
     border: var(--primary-0);
     color: var(--primary-0);
+    cursor: pointer;
 }
 
 .cc-buttonGroup-content-primary:hover {
-    background: var(--primary-1);
-    border: var(--primary-1);
-    color: var(--primary-1);
-}
-
-.cc-buttonGroup-content-primary:active {
     background: var(--primary-2);
     border: var(--primary-2);
     color: var(--primary-2);
+}
+
+.cc-buttonGroup-content-primary:active {
+    background: var(--tertiary-2);
+    border: var(--tertiary-2);
+    color: var(--tertiary-2);
 }
 
 .cc-buttonGroup-content-success {
     background: var(--success-0);
     border: var(--success-0);
     color: var(--success-0);
+    cursor: pointer;
 }
 
 .cc-buttonGroup-content-success:hover {
@@ -270,6 +702,7 @@ span.cc-slider.cc-round:before {
     background: var(--error-0);
     border: var(--error-0);
     color: var(--error-0);
+    cursor: pointer;
 }
 
 .cc-buttonGroup-content-error:hover {
@@ -288,6 +721,7 @@ span.cc-slider.cc-round:before {
     background: var(--warning-0);
     border: var(--warning-0);
     color: var(--warning-0);
+    cursor: pointer;
 }
 
 .cc-buttonGroup-content-warning:hover {
@@ -306,6 +740,7 @@ span.cc-slider.cc-round:before {
     background: var(--accent-0);
     border: var(--accent-0);
     color: var(--accent-0);
+    cursor: pointer;
 }
 
 .cc-buttonGroup-content-accent:hover {
@@ -408,7 +843,6 @@ span.cc-slider.cc-round:before {
     border-bottom-right-radius: 100vmax;
     border-bottom-left-radius: 100vmax;
 }
-
 
 .cc-buttonGroup-horizontal .cc-buttonGroup-text:last-child,
 .cc-buttonGroup-horizontal .cc-buttonGroup-text:last-child:hover,

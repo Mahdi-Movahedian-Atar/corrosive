@@ -25,7 +25,7 @@ export const Primary: Story = {
                 }),
                 value: true,
             },
-            { id: 1 },
+            { id: 1, disabled: true },
             { id: 2 },
         ],
         disabled: false,

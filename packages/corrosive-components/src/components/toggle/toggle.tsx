@@ -1,4 +1,11 @@
-import {$, component$, CSSProperties, QRL, Slot, useSignal} from '@builder.io/qwik'
+import {
+    $,
+    component$,
+    CSSProperties,
+    QRL,
+    Slot,
+    useSignal,
+} from '@builder.io/qwik'
 
 export interface ToggleProps {
     className?: string
@@ -14,24 +21,41 @@ export const Toggle = component$<ToggleProps>(
         disabled,
         className,
         style = {
-            height: 'fit-content',
-            width: 'fit-content',
+            height: '100%',
+            width: '100%',
         },
         variant = 'slider',
         color = 'primary',
         onChange,
-        value
+        value,
     }) => {
         const v = useSignal(value)
 
         return (
-            <div className={`cc-${variant} ${className}`} style={style}>
-                <input style={{height: '100%',width: '100%'}} type={variant == 'slider' ? 'radio' : variant} onClick$={$(()=> {v.value = !v.value; onChange && onChange(v.value);})} checked={v.value}/>
-                {variant == 'slider' &&
-                    <span className="cc-slider cc-round" onClick$={$(() => {
-                    v.value = !v.value;
-                    onChange && onChange(v.value);
-                })}></span>}
+            <div style={style} className={className}>
+                <div
+                    class={`cc-${variant} cc-toggle-${disabled ? 'disabled' : color}`}
+                >
+                    <input
+                        style={{ height: '100%', width: '100%' }}
+                        type={variant == 'slider' ? 'radio' : variant}
+                        onChange$={$(() => {
+                            v.value = !v.value
+                            onChange && onChange(v.value)
+                        })}
+                        checked={v.value}
+                        disabled={disabled}
+                    />
+                    <span
+                        onClick$={$(() => {
+                            if (disabled) {
+                                return
+                            }
+                            v.value = !v.value
+                            onChange && onChange(v.value)
+                        })}
+                    ></span>
+                </div>
             </div>
         )
     }

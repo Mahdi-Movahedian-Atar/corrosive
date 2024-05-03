@@ -1,25 +1,30 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
-import { Toggle, type ToggleProps } from './toggle'
+import { Input, type InputProps } from './input'
 import { $ } from '@builder.io/qwik'
+import {Button} from "../button/button";
 
-const meta: Meta<ToggleProps> = {
-    component: Toggle,
+const meta: Meta<InputProps> = {
+    component: Input,
 }
 
-type Story = StoryObj<ToggleProps>
+type Story = StoryObj<InputProps>
 
 export default meta
 
 export const Primary: Story = {
     args: {
+        value: 555,
+        placeholder: undefined,
         disabled: false,
-        value: false,
-        variant: 'slider',
+        variant: 'solid',
         color: 'primary',
+        raised: false,
+        rounded: false,
+        floatingPlaceholder: true,
         className: '',
         style: {
-            height: '100%',
-            width: '100%',
+            height: 'fit-content',
+            width: 'fit-content',
         },
         onChange: $((value) => {
             console.log(value)
@@ -27,7 +32,7 @@ export const Primary: Story = {
     },
     argTypes: {
         variant: {
-            options: ['slider', 'radio', 'checkbox'],
+            options: ['solid', 'outlined', 'text'],
             control: { type: 'radio' },
         },
         color: {
@@ -35,9 +40,5 @@ export const Primary: Story = {
             control: { type: 'radio' },
         },
     },
-    render: (props) => (
-        <Toggle {...props}>
-            <h1>Buttom</h1>
-        </Toggle>
-    ),
+    render: (props) => <Input {...props}> <Button q:slot={"left"}>left</Button> <Button q:slot={"right"}>left</Button> </Input>,
 }
