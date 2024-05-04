@@ -29,6 +29,9 @@ export const Primary: Story = {
         onChange: $((value) => {
             console.log(value)
         }),
+        type: undefined,
+        min : Number.MIN_VALUE,
+        max : Number.MAX_VALUE
     },
     argTypes: {
         variant: {
@@ -37,6 +40,10 @@ export const Primary: Story = {
         },
         color: {
             options: ['success', 'error', 'warning', 'accent', 'primary'],
+            control: { type: 'radio' },
+        },
+        type: {
+            options: [undefined, "number" , "password"],
             control: { type: 'radio' },
         },
     },

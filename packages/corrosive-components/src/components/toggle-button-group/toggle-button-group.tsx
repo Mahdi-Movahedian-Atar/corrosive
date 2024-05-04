@@ -3,9 +3,7 @@ import {
     component$,
     CSSProperties,
     QRL,
-    Signal,
     Slot,
-    useSignal,
     useStore,
     useTask$,
 } from '@builder.io/qwik'

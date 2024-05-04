@@ -1,4 +1,4 @@
-import { $, component$, CSSProperties, QRL, Slot } from '@builder.io/qwik'
+import {  component$, CSSProperties, QRL, Slot } from '@builder.io/qwik'
 
 export interface ButtonMembers {
     id: number
@@ -43,7 +43,7 @@ export const ButtonGroup = component$<ButtonGroupProps>(
 
                     return (
                         <button
-                            className={`${vertical ? 'cc-buttonGroup-vertical' : 'cc-buttonGroup-horizontal'} cc-buttonGroup-content-${d ? 'disabled' : value.color ? value.color : color} cc-buttonGroup-${variant}`}
+                            class={`${vertical ? 'cc-buttonGroup-vertical' : 'cc-buttonGroup-horizontal'} cc-buttonGroup-content-${d ? 'disabled' : value.color ? value.color : color} cc-buttonGroup-${variant}`}
                             onClick$={value.onClick}
                             disabled={d}
                         >

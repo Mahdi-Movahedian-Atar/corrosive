@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from 'storybook-framework-qwik'
 import {
     ToggleButtonGroup,
     type ToggleButtonGroupProps,
-    ToggleButtonMembers,
 } from './toggle-button-group'
 import { $ } from '@builder.io/qwik'
 

@@ -3,7 +3,6 @@ import {
     component$,
     CSSProperties,
     QRL,
-    Slot,
     useSignal,
 } from '@builder.io/qwik'
 
@@ -32,7 +31,7 @@ export const Toggle = component$<ToggleProps>(
         const v = useSignal(value)
 
         return (
-            <div style={style} className={className}>
+            <div style={style} class={className}>
                 <div
                     class={`cc-${variant} cc-toggle-${disabled ? 'disabled' : color}`}
                 >

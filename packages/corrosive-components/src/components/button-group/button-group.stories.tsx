@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from 'storybook-framework-qwik'
 import {
     ButtonGroup,
     type ButtonGroupProps,
-    ButtonMembers,
 } from './button-group'
 import { $ } from '@builder.io/qwik'
 

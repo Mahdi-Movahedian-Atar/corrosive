@@ -8,10 +8,13 @@ export interface InputProps {
     color?: 'success' | 'error' | 'warning' | 'accent' | 'primary'
     variant?: 'solid' | 'outlined' | 'text'
     rounded?: boolean
-    onChange?: QRL<(value: number|string) => void>
+    onChange?: QRL<(value: number|string|undefined) => void>
     raised?: boolean
     placeholder?: string
     floatingPlaceholder?: boolean
+    type?: "number" | "password"
+    min?: number
+    max?: number
 }
 export const Input = component$<InputProps>(
     ({
@@ -29,7 +32,12 @@ export const Input = component$<InputProps>(
         raised,
         placeholder,
         floatingPlaceholder = true,
+        type,
+         min = Number.MIN_VALUE,
+        max = Number.MAX_VALUE
     }) => {
+        const v = useSignal(value)
+
         return (
             <div class={className} style={style}>
                 <spam
@@ -39,16 +47,23 @@ export const Input = component$<InputProps>(
                     <input
                         disabled={disabled}
                         onChange$={$((e) => {
-                            onChange && onChange((e.target as any).value)
+                            v.value = (e.target as any).value
+                            if(type == "number"){
+                                v.value = parseFloat((e.target as any).value)
+                                v.value < min && (v.value = min);
+                                v.value > max && (v.value = max);
+                            }
+
+                            onChange && onChange(v.value)
                         })}
                         placeholder={placeholder}
-                        type={'number'}
-                        defaultValue={value?.toString()}
+                        type={type}
+                        value={v.value}
                     />
                     <Slot name={'right'}/>
                     {floatingPlaceholder && placeholder && (
                         <label
-                            className={`cc-input-label cc-input-${disabled ? 'disabled' : color}`}
+                            class={`cc-input-label cc-input-${disabled ? 'disabled' : color}`}
                         >
                             {placeholder}
                         </label>
