@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
-import {
-    ButtonGroup,
-    type ButtonGroupProps,
-} from './button-group'
+import { ButtonGroup, type ButtonGroupProps } from './button-group'
 import { $ } from '@builder.io/qwik'
 
 const meta: Meta<ButtonGroupProps> = {

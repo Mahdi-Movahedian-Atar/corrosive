@@ -1,18 +1,25 @@
-import {$, component$, CSSProperties, QRL, Slot, useSignal} from '@builder.io/qwik'
+import {
+    $,
+    component$,
+    CSSProperties,
+    QRL,
+    Slot,
+    useSignal,
+} from '@builder.io/qwik'
 
 export interface InputProps {
-    value?: number|string
+    value?: number | string
     className?: string
     disabled?: boolean
     style?: CSSProperties
     color?: 'success' | 'error' | 'warning' | 'accent' | 'primary'
     variant?: 'solid' | 'outlined' | 'text'
     rounded?: boolean
-    onChange?: QRL<(value: number|string|undefined) => void>
+    onChange?: QRL<(value: number | string | undefined) => void>
     raised?: boolean
     placeholder?: string
     floatingPlaceholder?: boolean
-    type?: "number" | "password"
+    type?: 'number' | 'password'
     min?: number
     max?: number
 }
@@ -33,8 +40,8 @@ export const Input = component$<InputProps>(
         placeholder,
         floatingPlaceholder = true,
         type,
-         min = Number.MIN_VALUE,
-        max = Number.MAX_VALUE
+        min = Number.MIN_VALUE,
+        max = Number.MAX_VALUE,
     }) => {
         const v = useSignal(value)
 
@@ -43,15 +50,15 @@ export const Input = component$<InputProps>(
                 <spam
                     class={`cc-input-${variant} cc-input-${disabled ? 'disabled' : color} ${rounded ? 'cc-input-rounded' : 'cc-input'} ${raised && 'cc-input-raised'}`}
                 >
-                    <Slot name={'left'}/>
+                    <Slot name={'left'} />
                     <input
                         disabled={disabled}
                         onChange$={$((e) => {
                             v.value = (e.target as any).value
-                            if(type == "number"){
+                            if (type == 'number') {
                                 v.value = parseFloat((e.target as any).value)
-                                v.value < min && (v.value = min);
-                                v.value > max && (v.value = max);
+                                v.value < min && (v.value = min)
+                                v.value > max && (v.value = max)
                             }
 
                             onChange && onChange(v.value)
@@ -60,7 +67,7 @@ export const Input = component$<InputProps>(
                         type={type}
                         value={v.value}
                     />
-                    <Slot name={'right'}/>
+                    <Slot name={'right'} />
                     {floatingPlaceholder && placeholder && (
                         <label
                             class={`cc-input-label cc-input-${disabled ? 'disabled' : color}`}

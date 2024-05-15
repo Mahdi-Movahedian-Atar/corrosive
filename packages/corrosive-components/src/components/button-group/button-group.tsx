@@ -1,4 +1,4 @@
-import {  component$, CSSProperties, QRL, Slot } from '@builder.io/qwik'
+import { component$, CSSProperties, QRL, Slot } from '@builder.io/qwik'
 
 export interface ButtonMembers {
     id: number

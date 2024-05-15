@@ -1,10 +1,4 @@
-import {
-    $,
-    component$,
-    CSSProperties,
-    QRL,
-    useSignal,
-} from '@builder.io/qwik'
+import { $, component$, CSSProperties, QRL, useSignal } from '@builder.io/qwik'
 
 export interface ToggleProps {
     className?: string
