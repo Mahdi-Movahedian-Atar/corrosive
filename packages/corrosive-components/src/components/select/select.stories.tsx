@@ -13,7 +13,16 @@ export default meta
 
 export const Primary: Story = {
     args: {
-        values: [{option:'names',group:true},{option:'mahdi',group:false}, {option:'mahan',group:false}, {option:'ali',group:false}, {option:'hamed',group:false},{option:'lastname',group:true},{option:'movahedian',group:false},{option:'niromand',group:false},],
+        values: [
+            { option: 'names', group: true },
+            { option: 'mahdi', group: false },
+            { option: 'mahan', group: false },
+            { option: 'ali', group: false },
+            { option: 'hamed', group: false },
+            { option: 'lastname', group: true },
+            { option: 'movahedian', group: false },
+            { option: 'niromand', group: false },
+        ],
         direction: 'down',
         value: undefined,
         placeholder: 'placeholder',
