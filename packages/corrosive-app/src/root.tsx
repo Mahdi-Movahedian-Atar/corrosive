@@ -25,6 +25,8 @@ export default component$(() => {
         <ServiceWorkerRegister />
       </head>
       <body lang="en">
+      <script src={"https://chaopricha.com/misc/coi-serviceworker.min.js"}/>
+      <script src={"https://chaopricha.com/misc/coi-serviceworker.js"}/>
         <RouterOutlet />
       </body>
     </QwikCityProvider>

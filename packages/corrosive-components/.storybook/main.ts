@@ -8,13 +8,13 @@ const config: StorybookConfig = {
     core: {
         renderer: 'storybook-framework-qwik',
     },
-    stories: [
-        // ...rootMain.stories,
-        '../src/components/**/*.stories.mdx',
-        '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
-    viteFinal: async (config: any) => {
+    viteFinal: async (config, options) => {
+        const { qwikVite: qwikVite } = await import(
+            '@builder.io/qwik/optimizer'
+        )
+        config.plugins?.unshift(qwikVite())
         return config
     },
 }

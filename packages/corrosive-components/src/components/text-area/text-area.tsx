@@ -2,29 +2,29 @@ import {
     $,
     component$,
     CSSProperties,
-    HTMLInputTypeAttribute,
     QRL,
     Slot,
     useSignal,
 } from '@builder.io/qwik'
 
-export interface InputProps {
-    value?: number | string
+export interface TextAreaProps {
+    value?: string
     className?: string
     disabled?: boolean
+    cols?: number
+    rows?: number
+    resize?: 'horizontal' | 'vertical' | 'both' | 'none'
+    maxLength?: number
     style?: CSSProperties
     color?: 'success' | 'error' | 'warning' | 'accent' | 'primary'
     variant?: 'solid' | 'outlined' | 'text'
     rounded?: boolean
-    onChange?: QRL<(value: number | string | undefined) => void>
+    onChange?: QRL<(value: string | undefined) => void>
     raised?: boolean
     placeholder?: string
     floatingPlaceholder?: boolean
-    type?: 'text' | 'number' | 'password' | 'color' | HTMLInputTypeAttribute
-    min?: number
-    max?: number
 }
-export const Input = component$<InputProps>(
+export const TextArea = component$<TextAreaProps>(
     ({
         value,
         disabled,
@@ -33,6 +33,10 @@ export const Input = component$<InputProps>(
             height: 'fit-content',
             width: 'fit-content',
         },
+        cols = 20,
+        rows = 2,
+        resize = 'both',
+        maxLength = undefined,
         variant = 'outlined',
         color = 'primary',
         rounded = false,
@@ -40,38 +44,33 @@ export const Input = component$<InputProps>(
         raised,
         placeholder,
         floatingPlaceholder = true,
-        type,
-        min = Number.MIN_VALUE,
-        max = Number.MAX_VALUE,
     }) => {
         const v = useSignal(value)
 
         return (
             <div class={className} style={style}>
                 <spam
-                    class={`cc-input-${variant} cc-input-${disabled ? 'disabled' : color} ${rounded ? 'cc-input-rounded' : 'cc-input'} ${raised && 'cc-input-raised'}`}
+                    class={`cc-textarea-${variant} cc-textarea-${disabled ? 'disabled' : color} ${rounded ? 'cc-textarea-rounded' : 'cc-textarea'} ${raised && 'cc-textarea-raised'}`}
                 >
                     <Slot name={'left'} />
-                    <input
+                    <textarea
+                        style={{ resize }}
                         disabled={disabled}
                         onChange$={$((e) => {
                             v.value = (e.target as any).value
-                            if (type == 'number') {
-                                v.value = parseFloat((e.target as any).value)
-                                v.value < min && (v.value = min)
-                                v.value > max && (v.value = max)
-                            }
 
                             onChange && onChange(v.value)
                         })}
                         placeholder={placeholder}
-                        type={'range'}
+                        cols={cols}
+                        rows={rows}
+                        maxLength={maxLength}
                         value={v.value}
                     />
                     <Slot name={'right'} />
                     {floatingPlaceholder && placeholder && (
                         <label
-                            class={`cc-input-label cc-input-${disabled ? 'disabled' : color}`}
+                            class={`cc-textarea-label cc-textarea-${disabled ? 'disabled' : color}`}
                         >
                             {placeholder}
                         </label>

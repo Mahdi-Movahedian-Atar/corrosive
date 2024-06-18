@@ -26,6 +26,7 @@ export default defineConfig(() => {
                 ],
             },
         },
+        server: { watch: { usePolling: true } },
         plugins: [qwikVite(), tsconfigPaths()],
     }
 })

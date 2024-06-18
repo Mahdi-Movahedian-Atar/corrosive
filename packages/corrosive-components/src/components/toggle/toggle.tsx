@@ -27,7 +27,7 @@ export const Toggle = component$<ToggleProps>(
         return (
             <div style={style} class={className}>
                 <div
-                    class={`cc-${variant} cc-toggle-${disabled ? 'disabled' : color}`}
+                    class={`cc-toggle-${variant} cc-toggle-${disabled ? 'disabled' : color}`}
                 >
                     <input
                         style={{ height: '100%', width: '100%' }}

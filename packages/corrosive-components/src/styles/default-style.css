@@ -21,9 +21,9 @@ body {
 
 /* ==========================Toggle========================== */
 
-.cc-checkbox,
-.cc-radio,
-.cc-slider {
+.cc-toggle-checkbox,
+.cc-toggle-radio,
+.cc-toggle-slider {
     width: 100%;
     height: 100%;
 }
@@ -139,7 +139,7 @@ body {
     border: var(--tertiary-1);
 }
 
-.cc-radio {
+.cc-toggle-radio {
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -149,7 +149,7 @@ body {
     user-select: none;
 }
 
-.cc-radio input {
+.cc-toggle-radio input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -157,8 +157,8 @@ body {
     width: 0;
 }
 
-.cc-radio span,
-.cc-radio:hover span {
+.cc-toggle-radio span,
+.cc-toggle-radio:hover span {
     position: absolute;
     top: 0;
     left: 0;
@@ -169,18 +169,18 @@ body {
     border-style: solid;
 }
 
-.cc-radio span:after,
-.cc-radio:hover span:after {
+.cc-toggle-radio span:after,
+.cc-toggle-radio:hover span:after {
     content: '';
     position: absolute;
     display: none;
 }
 
-.cc-radio input:checked ~ span:after {
+.cc-toggle-radio input:checked ~ span:after {
     display: block;
 }
 
-.cc-radio span:after {
+.cc-toggle-radio span:after {
     top: 25%;
     left: 25%;
     width: 50%;
@@ -188,7 +188,7 @@ body {
     border-radius: 50%;
 }
 
-.cc-checkbox {
+.cc-toggle-checkbox {
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -198,7 +198,7 @@ body {
     user-select: none;
 }
 
-.cc-checkbox input {
+.cc-toggle-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -206,8 +206,8 @@ body {
     width: 0;
 }
 
-.cc-checkbox span,
-.cc-checkbox:hover span {
+.cc-toggle-checkbox span,
+.cc-toggle-checkbox:hover span {
     position: absolute;
     top: 0;
     left: 0;
@@ -218,25 +218,25 @@ body {
     border-radius: var(--corner);
 }
 
-.cc-checkbox span:after {
+.cc-toggle-checkbox span:after {
     content: '';
     position: absolute;
     display: none;
 }
 
-.cc-checkbox input:checked ~ span:after {
+.cc-toggle-checkbox input:checked ~ span:after {
     display: inline-block;
     mask-size: cover;
 }
 
-.cc-checkbox span:after {
+.cc-toggle-checkbox span:after {
     margin: 10%;
     width: 80%;
     height: 80%;
     mask: url('../icons/Check.svg');
 }
 
-.cc-slider {
+.cc-toggle-slider {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -244,17 +244,17 @@ body {
     overflow: visible;
 }
 
-.cc-slider input {
+.cc-toggle-slider input {
     opacity: 0;
     width: 0;
     height: 0;
     overflow: visible;
 }
 
-.cc-slider span,
-.cc-slider:hover span,
-.cc-slider input:checked + span,
-.cc-slider:hover input:checked + span {
+.cc-toggle-slider span,
+.cc-toggle-slider:hover span,
+.cc-toggle-slider input:checked + span,
+.cc-toggle-slider:hover input:checked + span {
     position: absolute;
     cursor: pointer;
     top: 25%;
@@ -269,8 +269,8 @@ body {
     border-radius: 100vmax;
 }
 
-.cc-slider span:after,
-.cc-slider:hover span:after {
+.cc-toggle-slider span:after,
+.cc-toggle-slider:hover span:after {
     position: absolute;
     content: '';
     height: 200%;
@@ -284,8 +284,8 @@ body {
     border-radius: 100vmax;
 }
 
-.cc-slider input:checked + span:after,
-.cc-slider:hover input:checked + span:after {
+.cc-toggle-slider input:checked + span:after,
+.cc-toggle-slider:hover input:checked + span:after {
     border-width: var(--width);
     border-style: solid;
     -webkit-transform: translateX(100%);
@@ -641,6 +641,419 @@ input:placeholder-shown ~ .cc-input-label {
     display: inline-block;
 }
 
+/* ==========================Input========================== */
+
+.cc-fileInput,
+.cc-fileInput-rounded {
+    position: relative;
+    cursor: text;
+    padding: 0.5rem;
+    font-size: inherit;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.cc-fileInput input::file-selector-button,
+.cc-fileInput-rounded input::file-selector-button {
+    background: none;
+    border: currentColor var(--width) solid;
+    border-radius: var(--corner);
+    color: currentColor;
+    height: 100%;
+    font-size: medium;
+}
+
+.cc-fileInput input,
+.cc-fileInput-rounded input {
+    width: 100%;
+    height: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.cc-fileInput {
+    border-radius: var(--corner);
+}
+
+.cc-fileInput-rounded {
+    border-radius: 100vmax;
+}
+
+.cc-fileInput-raised {
+    box-shadow: 0 var(--width) var(--width) var(--secondary-2);
+}
+
+.cc-fileInput-primary {
+    background: var(--primary-0);
+    border: var(--primary-0);
+    color: var(--primary-0);
+}
+.cc-fileInput-primary:hover,
+.cc-fileInput-solid.cc-fileInput-primary:hover ~ .cc-fileInput-label {
+    background: var(--primary-2);
+    border: var(--primary-2);
+}
+.cc-fileInput-primary:active,
+.cc-fileInput-solid.cc-fileInput-primary:active ~ .cc-fileInput-label {
+    background: var(--tertiary-2);
+    border: var(--tertiary-2);
+}
+
+.cc-fileInput-success {
+    background: var(--success-0);
+    border: var(--success-0);
+    color: var(--success-0);
+}
+.cc-fileInput-success:hover,
+.cc-fileInput-solid.cc-fileInput-success:hover ~ .cc-fileInput-label {
+    background: var(--success-1);
+    border: var(--success-1);
+}
+.cc-fileInput-success:active,
+.cc-fileInput-solid.cc-fileInput-success:active ~ .cc-fileInput-label {
+    background: var(--success-2);
+    border: var(--success-2);
+}
+
+.cc-fileInput-error {
+    background: var(--error-0);
+    border: var(--error-0);
+    color: var(--error-0);
+}
+.cc-fileInput-error:hover,
+.cc-fileInput-solid.cc-fileInput-error:hover ~ .cc-fileInput-label {
+    background: var(--error-1);
+    border: var(--error-1);
+}
+.cc-fileInput-error:active,
+.cc-fileInput-solid.cc-fileInput-error:active ~ .cc-fileInput-label {
+    background: var(--error-2);
+    border: var(--error-2);
+}
+
+.cc-fileInput-warning {
+    background: var(--warning-0);
+    border: var(--warning-0);
+    color: var(--warning-0);
+}
+.cc-fileInput-warning:hover,
+.cc-fileInput-solid.cc-fileInput-warning:hover ~ .cc-fileInput-label {
+    background: var(--warning-1);
+    border: var(--warning-1);
+}
+.cc-fileInput-warning:active,
+.cc-fileInput-solid.cc-fileInput-warning:active ~ .cc-fileInput-label {
+    background: var(--warning-2);
+    border: var(--warning-2);
+}
+
+.cc-fileInput-accent {
+    background: var(--accent-0);
+    border: var(--accent-0);
+    color: var(--accent-0);
+}
+.cc-fileInput-accent:hover,
+.cc-fileInput-solid.cc-fileInput-accent:hover ~ .cc-fileInput-label {
+    background: var(--accent-1);
+    border: var(--accent-1);
+}
+.cc-fileInput-accent:active,
+.cc-fileInput-solid.cc-fileInput-accent:active ~ .cc-fileInput-label {
+    background: var(--accent-2);
+    border: var(--accent-2);
+}
+
+.cc-fileInput-disabled {
+    background: var(--tertiary-0);
+    border: var(--tertiary-0);
+    color: var(--tertiary-2);
+    cursor: auto;
+}
+
+.cc-fileInput-solid,
+.cc-fileInput-solid:hover,
+.cc-fileInput-solid:active,
+.cc-fileInput-solid:focus-visible {
+    border-style: solid;
+    outline: none;
+    border-width: var(--width);
+    color: var(--secondary-0);
+}
+
+.cc-fileInput-text,
+.cc-fileInput-text:hover,
+.cc-fileInput-text:active,
+.cc-fileInput-text:focus-visible {
+    border: unset;
+    outline: none;
+    border-bottom: var(--width) solid;
+    background: unset;
+}
+
+.cc-fileInput-outlined,
+.cc-fileInput-outlined:hover,
+.cc-fileInput-outlined:active,
+.cc-fileInput-outlined:focus-visible {
+    border-style: solid;
+    outline: none;
+    border-width: var(--width);
+    background: unset;
+}
+
+.cc-fileInput-label {
+    position: absolute;
+    pointer-events: none;
+    width: fit-content;
+    height: min-content;
+    bottom: 50%;
+    top: -1rem;
+    border-radius: var(--corner);
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.cc-fileInput-outlined .cc-fileInput-label,
+.cc-fileInput-text .cc-fileInput-label {
+    background: unset;
+    border: unset;
+}
+
+.cc-fileInput-outlined .cc-fileInput-label,
+.cc-fileInput-text .cc-fileInput-label {
+    border: solid var(--width);
+    background: var(--secondary-0);
+    display: inline-block;
+}
+.cc-fileInput-solid .cc-fileInput-label {
+    color: var(--secondary-0);
+    border: solid var(--width) var(--secondary-0);
+    display: inline-block;
+}
+
+/* ==========================Text Area========================== */
+
+.cc-textarea textarea,
+.cc-textarea-rounded textarea {
+    background: unset;
+    border: unset;
+    outline: unset;
+    color: inherit;
+    flex: auto;
+    width: 100%;
+    height: 100%;
+    scrollbar-color: currentColor var(--secondary-0);
+    scrollbar-arrow-color: currentColor;
+    scrollbar-gutter: both-edges;
+}
+
+.cc-textarea,
+.cc-textarea-rounded {
+    position: relative;
+    cursor: text;
+    padding: 0.5rem;
+    font-size: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cc-textarea {
+    border-radius: var(--corner);
+}
+
+.cc-textarea-rounded {
+    border-radius: 100vmax;
+}
+
+.cc-textarea-raised {
+    box-shadow: 0 var(--width) var(--width) var(--secondary-2);
+}
+
+.cc-textarea-primary {
+    background: var(--primary-0);
+    border: var(--primary-0);
+    color: var(--primary-0);
+}
+.cc-textarea-primary textarea::placeholder {
+    color: var(--tertiary-1);
+}
+.cc-textarea-primary:hover,
+.cc-textarea-solid.cc-textarea-primary:hover ~ .cc-textarea-label {
+    background: var(--primary-2);
+    border: var(--primary-2);
+}
+.cc-textarea-primary:active,
+.cc-textarea-solid.cc-textarea-primary:active ~ .cc-textarea-label {
+    background: var(--tertiary-2);
+    border: var(--tertiary-2);
+}
+
+.cc-textarea-success {
+    background: var(--success-0);
+    border: var(--success-0);
+    color: var(--success-0);
+}
+.cc-textarea-success textarea::placeholder {
+    color: var(--success-1);
+}
+.cc-textarea-success:hover,
+.cc-textarea-solid.cc-textarea-success:hover ~ .cc-textarea-label {
+    background: var(--success-1);
+    border: var(--success-1);
+}
+.cc-textarea-success:active,
+.cc-textarea-solid.cc-textarea-success:active ~ .cc-textarea-label {
+    background: var(--success-2);
+    border: var(--success-2);
+}
+
+.cc-textarea-error {
+    background: var(--error-0);
+    border: var(--error-0);
+    color: var(--error-0);
+}
+.cc-textarea-error textarea::placeholder {
+    color: var(--error-1);
+}
+.cc-textarea-error:hover,
+.cc-textarea-solid.cc-textarea-error:hover ~ .cc-textarea-label {
+    background: var(--error-1);
+    border: var(--error-1);
+}
+.cc-textarea-error:active,
+.cc-textarea-solid.cc-textarea-error:active ~ .cc-textarea-label {
+    background: var(--error-2);
+    border: var(--error-2);
+}
+
+.cc-textarea-warning {
+    background: var(--warning-0);
+    border: var(--warning-0);
+    color: var(--warning-0);
+}
+.cc-textarea-warning textarea::placeholder {
+    color: var(--warning-1);
+}
+.cc-textarea-warning:hover,
+.cc-textarea-solid.cc-textarea-warning:hover ~ .cc-textarea-label {
+    background: var(--warning-1);
+    border: var(--warning-1);
+}
+.cc-textarea-warning:active,
+.cc-textarea-solid.cc-textarea-warning:active ~ .cc-textarea-label {
+    background: var(--warning-2);
+    border: var(--warning-2);
+}
+
+.cc-textarea-accent {
+    background: var(--accent-0);
+    border: var(--accent-0);
+    color: var(--accent-0);
+}
+.cc-textarea-accent textarea::placeholder {
+    color: var(--accent-1);
+}
+.cc-textarea-accent:hover,
+.cc-textarea-solid.cc-textarea-accent:hover ~ .cc-textarea-label {
+    background: var(--accent-1);
+    border: var(--accent-1);
+}
+.cc-textarea-accent:active,
+.cc-textarea-solid.cc-textarea-accent:active ~ .cc-textarea-label {
+    background: var(--accent-2);
+    border: var(--accent-2);
+}
+
+.cc-textarea-disabled {
+    background: var(--tertiary-0);
+    border: var(--tertiary-0);
+    color: var(--tertiary-2);
+    cursor: auto;
+}
+.cc-textarea-disabled textarea::placeholder {
+    color: var(--tertiary-2);
+}
+.cc-textarea-solid,
+.cc-textarea-solid:hover,
+.cc-textarea-solid:active,
+.cc-textarea-solid:focus-visible {
+    border-style: solid;
+    outline: none;
+    border-width: var(--width);
+    color: var(--secondary-0);
+}
+.cc-textarea-solid textarea::placeholder {
+    color: var(--secondary-0);
+}
+
+.cc-textarea-solid textarea {
+    scrollbar-color: currentColor var(--primary-0);
+    scrollbar-arrow-color: var(--primary-0);
+}
+
+.cc-textarea-text,
+.cc-textarea-text:hover,
+.cc-textarea-text:active,
+.cc-textarea-text:focus-visible {
+    border: unset;
+    outline: none;
+    border-bottom: var(--width) solid;
+    background: unset;
+}
+
+.cc-textarea-outlined,
+.cc-textarea-outlined:hover,
+.cc-textarea-outlined:active,
+.cc-textarea-outlined:focus-visible {
+    border-style: solid;
+    outline: none;
+    border-width: var(--width);
+    background: unset;
+}
+
+.cc-textarea-label {
+    position: absolute;
+    pointer-events: none;
+    width: fit-content;
+    height: min-content;
+    top: 0;
+    border-radius: var(--corner);
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.cc-textarea-outlined .cc-textarea-label,
+.cc-textarea-text .cc-textarea-label {
+    background: unset;
+    border: unset;
+}
+
+textarea:placeholder-shown ~ .cc-textarea-label {
+    background: none;
+    font-size: 0;
+    border-style: none;
+}
+
+.cc-textarea-outlined textarea:not(:placeholder-shown) ~ .cc-textarea-label,
+.cc-textarea-text textarea:not(:placeholder-shown) ~ .cc-textarea-label {
+    top: -1rem;
+    border: solid var(--width);
+    background: var(--secondary-0);
+    display: inline-block;
+}
+.cc-textarea-solid .cc-textarea-label,
+.cc-textarea-solid textarea:not(:placeholder-shown) ~ .cc-textarea-label {
+    color: var(--secondary-0);
+}
+.cc-textarea-solid textarea:not(:placeholder-shown) ~ .cc-textarea-label {
+    top: -1rem;
+    border: solid var(--width) var(--secondary-0);
+    display: inline-block;
+}
+
 /* ==========================select========================== */
 
 .cc-select span,
@@ -909,6 +1322,425 @@ input:placeholder-shown ~ .cc-input-label {
     top: -1rem;
     border: solid var(--width) var(--secondary-0);
     display: inline-block;
+}
+
+/* ==========================Slider========================== */
+
+.cc-slider {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: var(--large-icon);
+    align-items: center;
+}
+.cc-slider-vertical {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    height: 100%;
+    width: var(--large-icon);
+    align-items: center;
+}
+.cc-slider input,
+.cc-slider-vertical input {
+    -webkit-transition: unset;
+    transition: unset;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: calc(100% + var(--large-icon));
+    left: calc(var(--large-icon) / -2);
+    outline: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+.cc-slider-vertical input {
+    -webkit-transition: unset;
+    transition: unset;
+    width: unset;
+    left: 0;
+    right: 0;
+    top: calc(var(--large-icon) / -2);
+    bottom: unset;
+    height: calc(100% + var(--large-icon));
+    writing-mode: vertical-lr;
+}
+
+.cc-slider-track,
+.cc-slider-track-active {
+    -webkit-transition: unset;
+    transition: unset;
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border: solid var(--width);
+    border-radius: 100vh;
+    display: inline-flex;
+}
+.cc-slider-vertical .cc-slider-track,
+.cc-slider-vertical .cc-slider-track-active {
+    top: unset;
+    bottom: unset;
+    left: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.cc-slider-track span,
+.cc-slider-track-active span {
+    border: unset;
+    background: unset;
+    width: 100%;
+    border: unset;
+    border-right: solid currentColor var(--width);
+}
+.cc-slider-vertical .cc-slider-track span,
+.cc-slider-vertical .cc-slider-track-active span {
+    border: unset;
+    background: unset;
+    height: 100%;
+    border: unset;
+    border-bottom: solid currentColor var(--width);
+}
+.cc-slider-track span:last-child,
+.cc-slider-track-active span:last-child {
+    border: transparent;
+}
+
+.cc-slider input::-webkit-slider-runnable-track,
+.cc-slider-vertical input::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+}
+.cc-slider input::-moz-range-track,
+.cc-slider-vertical input::-moz-range-track {
+    -moz-appearance: none;
+}
+.cc-slider input::-ms-track,
+.cc-slider-vertical input::-ms-track {
+    appearance: none;
+}
+.cc-slider input::-webkit-slider-thumb,
+.cc-slider-vertical input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: var(--large-icon);
+    width: var(--large-icon);
+    cursor: pointer;
+    pointer-events: auto;
+    border: solid var(--width);
+    border-radius: 100vh;
+}
+.cc-slider input::-moz-range-thumb,
+.cc-slider-vertical input::-moz-range-thumb {
+    -moz-appearance: none;
+    height: var(--large-icon);
+    width: var(--large-icon);
+    cursor: pointer;
+    border: solid var(--width);
+    border-radius: 100vh;
+    pointer-events: auto;
+}
+.cc-slider input::-ms-thumb,
+.cc-slider-vertical input::-ms-thumb {
+    appearance: none;
+    height: var(--large-icon);
+    width: var(--large-icon);
+    cursor: pointer;
+    border: solid var(--width);
+    border-radius: 100vh;
+    pointer-events: auto;
+}
+.cc-slider-value {
+    position: absolute;
+    width: fit-content;
+    height: min-content;
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+    border-radius: var(--corner);
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+.cc-slider .cc-slider-value:first-child {
+    left: 0;
+    transform: translate(-50%, calc(var(--large-icon) / 2));
+}
+.cc-slider .cc-slider-value:last-child {
+    right: 0;
+    transform: translate(50%, calc(var(--large-icon) / 2));
+}
+.cc-slider-vertical .cc-slider-value:first-child {
+    top: 0;
+    transform: translate(calc(var(--large-icon) / 2), -50%);
+}
+.cc-slider-vertical .cc-slider-value:last-child {
+    bottom: 0;
+    transform: translate(calc(var(--large-icon) / 2), 50%);
+}
+
+.cc-slider-disabled .cc-slider-track {
+    background: var(--secondary-0);
+    border-color: var(--tertiary-2);
+    color: var(--tertiary-2);
+}
+.cc-slider-disabled .cc-slider-track-active {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-0);
+    color: var(--secondary-0);
+}
+.cc-slider-disabled input::-webkit-slider-thumb {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-0);
+}
+.cc-slider-disabled input::-moz-range-thumb {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-0);
+}
+.cc-slider-disabled input::-ms-thumb {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-0);
+}
+
+.cc-slider-primary .cc-slider-track {
+    background: var(--secondary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+.cc-slider-primary .cc-slider-track-active {
+    background: var(--primary-0);
+    border-color: var(--secondary-0);
+    color: var(--secondary-0);
+}
+.cc-slider-primary input::-webkit-slider-thumb {
+    background: var(--primary-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-primary input::-moz-range-thumb {
+    background: var(--primary-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-primary input::-ms-thumb {
+    background: var(--primary-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-primary input:hover::-ms-thumb {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-1);
+}
+.cc-slider-primary input:active::-ms-thumb {
+    background: var(--secondary-0);
+    border-color: var(--primary-0);
+}
+.cc-slider-primary input:hover::-moz-range-thumb {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-1);
+}
+.cc-slider-primary input:active::-moz-range-thumb {
+    background: var(--secondary-0);
+    border-color: var(--primary-0);
+}
+.cc-slider-primary input:hover::-webkit-slider-thumb {
+    background: var(--tertiary-2);
+    border-color: var(--secondary-1);
+}
+.cc-slider-primary input:active::-webkit-slider-thumb {
+    background: var(--secondary-0);
+    border-color: var(--primary-0);
+}
+
+.cc-slider-accent .cc-slider-track {
+    background: var(--secondary-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+.cc-slider-accent .cc-slider-track-active {
+    background: var(--accent-0);
+    border-color: var(--secondary-0);
+    color: var(--secondary-0);
+}
+.cc-slider-accent input::-webkit-slider-thumb {
+    background: var(--accent-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-accent input::-moz-range-thumb {
+    background: var(--accent-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-accent input::-ms-thumb {
+    background: var(--accent-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-accent input:hover::-ms-thumb {
+    background: var(--accent-1);
+    border-color: var(--accent-2);
+}
+.cc-slider-accent input:active::-ms-thumb {
+    background: var(--secondary-0);
+    border-color: var(--accent-0);
+}
+.cc-slider-accent input:hover::-moz-range-thumb {
+    background: var(--accent-1);
+    border-color: var(--accent-2);
+}
+.cc-slider-accent input:active::-moz-range-thumb {
+    background: var(--secondary-0);
+    border-color: var(--accent-0);
+}
+.cc-slider-accent input:hover::-webkit-slider-thumb {
+    background: var(--accent-1);
+    border-color: var(--accent-2);
+}
+.cc-slider-accent input:active::-webkit-slider-thumb {
+    background: var(--secondary-0);
+    border-color: var(--accent-0);
+}
+
+.cc-slider-warning .cc-slider-track {
+    background: var(--secondary-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+.cc-slider-warning .cc-slider-track-active {
+    background: var(--warning-0);
+    border-color: var(--secondary-0);
+    color: var(--secondary-0);
+}
+.cc-slider-warning input::-webkit-slider-thumb {
+    background: var(--warning-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-warning input::-moz-range-thumb {
+    background: var(--warning-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-warning input::-ms-thumb {
+    background: var(--warning-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-warning input:hover::-ms-thumb {
+    background: var(--warning-1);
+    border-color: var(--warning-2);
+}
+.cc-slider-warning input:active::-ms-thumb {
+    background: var(--secondary-0);
+    border-color: var(--warning-0);
+}
+.cc-slider-warning input:hover::-moz-range-thumb {
+    background: var(--warning-1);
+    border-color: var(--warning-2);
+}
+.cc-slider-warning input:active::-moz-range-thumb {
+    background: var(--secondary-0);
+    border-color: var(--warning-0);
+}
+.cc-slider-warning input:hover::-webkit-slider-thumb {
+    background: var(--warning-1);
+    border-color: var(--warning-2);
+}
+.cc-slider-warning input:active::-webkit-slider-thumb {
+    background: var(--secondary-0);
+    border-color: var(--warning-0);
+}
+
+.cc-slider-error .cc-slider-track {
+    background: var(--secondary-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+.cc-slider-error .cc-slider-track-active {
+    background: var(--error-0);
+    border-color: var(--secondary-0);
+    color: var(--secondary-0);
+}
+.cc-slider-error input::-webkit-slider-thumb {
+    background: var(--error-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-error input::-moz-range-thumb {
+    background: var(--error-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-error input::-ms-thumb {
+    background: var(--error-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-error input:hover::-ms-thumb {
+    background: var(--error-1);
+    border-color: var(--error-2);
+}
+.cc-slider-error input:active::-ms-thumb {
+    background: var(--secondary-0);
+    border-color: var(--error-0);
+}
+.cc-slider-error input:hover::-moz-range-thumb {
+    background: var(--error-1);
+    border-color: var(--error-2);
+}
+.cc-slider-error input:active::-moz-range-thumb {
+    background: var(--secondary-0);
+    border-color: var(--error-0);
+}
+.cc-slider-error input:hover::-webkit-slider-thumb {
+    background: var(--error-1);
+    border-color: var(--error-2);
+}
+.cc-slider-error input:active::-webkit-slider-thumb {
+    background: var(--secondary-0);
+    border-color: var(--error-0);
+}
+
+.cc-slider-success .cc-slider-track {
+    background: var(--secondary-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+.cc-slider-success .cc-slider-track-active {
+    background: var(--success-0);
+    border-color: var(--secondary-0);
+    color: var(--secondary-0);
+}
+.cc-slider-success input::-webkit-slider-thumb {
+    background: var(--success-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-success input::-moz-range-thumb {
+    background: var(--success-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-success input::-ms-thumb {
+    background: var(--success-0);
+    border-color: var(--secondary-0);
+}
+.cc-slider-success input:hover::-ms-thumb {
+    background: var(--success-1);
+    border-color: var(--success-2);
+}
+.cc-slider-success input:active::-ms-thumb {
+    background: var(--secondary-0);
+    border-color: var(--success-0);
+}
+.cc-slider-success input:hover::-moz-range-thumb {
+    background: var(--success-1);
+    border-color: var(--success-2);
+}
+.cc-slider-success input:active::-moz-range-thumb {
+    background: var(--secondary-0);
+    border-color: var(--success-0);
+}
+.cc-slider-success input:hover::-webkit-slider-thumb {
+    background: var(--success-1);
+    border-color: var(--success-2);
+}
+.cc-slider-success input:active::-webkit-slider-thumb {
+    background: var(--secondary-0);
+    border-color: var(--success-0);
 }
 
 /* ==========================Buttons Group========================== */

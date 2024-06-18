@@ -7,7 +7,6 @@ import {
     useSignal,
     useVisibleTask$,
 } from '@builder.io/qwik'
-import { i } from 'vite/dist/node/types.d-jgA8ss1A'
 
 export interface DropdownProps {
     values?: { option: string; group: boolean }[]
