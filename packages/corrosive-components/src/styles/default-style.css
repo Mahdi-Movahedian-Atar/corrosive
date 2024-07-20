@@ -298,6 +298,7 @@ body {
 .cc-button {
     border-radius: var(--corner);
     cursor: pointer;
+    position: relative;
 }
 
 .cc-button-rounded {
@@ -1114,6 +1115,7 @@ textarea:placeholder-shown ~ .cc-textarea-label {
     border-radius: var(--corner);
     border: var(--width) solid;
     cursor: pointer;
+    scrollbar-width: thin;
     scrollbar-color: currentColor var(--secondary-0);
     scrollbar-arrow-color: currentColor;
     scrollbar-gutter: both-edges;
@@ -1747,6 +1749,7 @@ textarea:placeholder-shown ~ .cc-textarea-label {
 
 .cc-buttonGroup,
 .cc-buttonGroup-rounded {
+    position: relative;
     cursor: pointer;
     overflow: hidden;
     display: inline-flex;
@@ -1999,6 +2002,262 @@ textarea:placeholder-shown ~ .cc-textarea-label {
     border-bottom-width: calc(var(--width) * 0.5);
 }
 
+/* ==========================avatar========================== */
+
+.cc-avatar {
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    line-height: 1;
+    font-weight: bold;
+    border: solid var(--width);
+    position: relative;
+}
+
+.cc-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cc-avatar-fallback {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cc-avatar-primary {
+    background: var(--primary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-avatar-success {
+    background: var(--success-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-avatar-error {
+    background: var(--error-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-avatar-warning {
+    background: var(--warning-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-avatar-accent {
+    background: var(--accent-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-avatar-solid {
+    color: var(--secondary-0);
+}
+
+.cc-avatar-outlined {
+    background: unset;
+}
+
+.cc-avatar-text {
+    background: unset;
+    border: unset;
+}
+/* ==========================avatar========================== */
+
+.cc-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cc-overlay-primary {
+    background-color: var(--primary-0);
+}
+
+.cc-overlay-success {
+    background-color: var(--success-0);
+}
+
+.cc-overlay-error {
+    background-color: var(--error-0);
+}
+
+.cc-overlay-warning {
+    background-color: var(--warning-0);
+}
+
+.cc-overlay-accent {
+    background-color: var(--accent-0);
+}
+
+/* ==========================badge========================== */
+
+.cc-badge {
+    border: solid var(--width);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    padding: var(--width);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.cc-badge-top-right {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.cc-badge-top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.cc-badge-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+}
+
+.cc-badge-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+}
+
+.cc-badge-primary {
+    background: var(--primary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-badge-success {
+    background: var(--success-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-badge-error {
+    background: var(--error-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-badge-warning {
+    background: var(--warning-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-badge-accent {
+    background: var(--accent-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-badge-solid {
+    color: var(--secondary-0);
+}
+
+.cc-badge-outlined {
+    background: unset;
+}
+
+.cc-badge-text {
+    background: unset;
+    border: unset;
+}
+
+/* ==========================badge========================== */
+
+.cc-divider {
+    border: solid var(--width);
+    border-radius: var(--corner);
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.cc-divider-vertical {
+    flex-direction: column;
+}
+
+.cc-divider-primary {
+    background: var(--primary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-divider-success {
+    background: var(--success-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-divider-error {
+    background: var(--error-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-divider-warning {
+    background: var(--warning-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-divider-accent {
+    background: var(--accent-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-divider-solid {
+    color: var(--secondary-0);
+}
+
+.cc-divider-outlined {
+    background: unset;
+}
+
+.cc-divider-text {
+    background: unset;
+    border: unset;
+}
+
+.cc-divider-panel {
+    overflow: hidden;
+}
+
+.cc-divider-panel:first-child {
+    border-right: double currentColor var(--width);
+}
+.cc-divider-panel:last-child {
+    border-left: double currentColor var(--width);
+}
+.cc-divider-vertical .cc-divider-panel:first-child {
+    border-right: none;
+    border-bottom: double currentColor var(--width);
+}
+.cc-divider-vertical .cc-divider-panel:last-child {
+    border-left: none;
+    border-top: double currentColor var(--width);
+}
+
 /* ==========================resizable panels========================== */
 
 .cc-resizablePanels-parent,
@@ -2006,6 +2265,7 @@ textarea:placeholder-shown ~ .cc-textarea-label {
     display: flex;
     overflow: hidden;
     height: 100%;
+    position: relative;
 }
 
 .cc-resizablePanels-parent-vertical {
@@ -2098,11 +2358,132 @@ textarea:placeholder-shown ~ .cc-textarea-label {
     display: flex;
 }
 
-/* ==========================treeView========================== */
+/* ========================== tooltip ========================== */
+
+.cc-tooltip {
+    border: solid var(--width);
+    border-radius: var(--corner);
+    padding: var(--width);
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.cc-tooltip::after {
+    content: '';
+    position: absolute;
+    border: 0.5rem solid transparent;
+    border-radius: var(--corner);
+}
+
+.cc-tooltip-top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10%;
+}
+
+.cc-tooltip-top::after {
+    top: calc(100% - var(--width));
+    left: 50%;
+    border-top-color: inherit;
+    transform: translateX(-50%);
+}
+.cc-tooltip-right {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    margin-left: 20%;
+}
+.cc-tooltip-right::after {
+    top: 50%;
+    right: calc(100% - var(--width));
+    border-right-color: inherit;
+    transform: translateY(-50%);
+}
+
+.cc-tooltip-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10%;
+}
+.cc-tooltip-bottom::after {
+    bottom: calc(100% - var(--width));
+    left: 50%;
+    border-bottom-color: inherit;
+    transform: translateX(-50%);
+}
+
+.cc-tooltip-left {
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    margin-right: 10%;
+}
+
+.cc-tooltip-left::after {
+    top: 50%;
+    left: calc(100% - var(--width));
+    border-left-color: inherit;
+    transform: translateY(-50%);
+}
+
+.cc-tooltip-primary {
+    background: var(--primary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-tooltip-success {
+    background: var(--success-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-tooltip-error {
+    background: var(--error-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-tooltip-warning {
+    background: var(--warning-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-tooltip-accent {
+    background: var(--accent-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-tooltip-disabled {
+    background: var(--tertiary-0);
+    border: var(--tertiary-0);
+    color: var(--tertiary-0);
+}
+
+.cc-tooltip-solid {
+    color: var(--secondary-0);
+}
+
+.cc-tooltip-outlined {
+    background: unset;
+}
+
+.cc-tooltip-text {
+    background: unset;
+    border: unset;
+}
+
+/* ==========================tree view========================== */
 
 .cc-treeNode {
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .cc-treeNode:hover {
@@ -2111,6 +2492,211 @@ textarea:placeholder-shown ~ .cc-textarea-label {
 
 .cc-treeNode-toggle {
     cursor: pointer;
+}
+
+/* ==========================toast========================== */
+
+.cc-toast-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cc-toast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: var(--corner);
+    border: solid var(--width);
+    font-family: Arial, sans-serif;
+}
+
+.cc-toast-primary {
+    background: var(--primary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-toast-success {
+    background: var(--success-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-toast-error {
+    background: var(--error-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-toast-warning {
+    background: var(--warning-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-toast-accent {
+    background: var(--accent-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-toast-solid {
+    color: var(--secondary-0);
+}
+.cc-toast-outlined {
+    background: transparent;
+}
+.cc-toast-text {
+    background: transparent;
+    border-color: transparent;
+}
+
+.cc-toast button {
+    background: transparent;
+    border-color: transparent;
+    color: currentColor;
+    cursor: pointer;
+}
+
+/* ==========================scroll panel========================== */
+
+.cc-scrollPanel-parent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.cc-scrollPanel {
+    height: 100%;
+    width: 100%;
+}
+
+.cc-scrollPanel-wrapper {
+    scrollbar-width: none;
+    height: 100%;
+    width: 100%;
+}
+
+.cc-scrollPanel-bar-h,
+.cc-scrollPanel-bar-v {
+    background: var(--secondary-0);
+    position: relative;
+    border: solid var(--width);
+    border-radius: 1rem;
+}
+.cc-scrollPanel-bar-v {
+    width: 1rem;
+    height: 100%;
+}
+.cc-scrollPanel-bar-h {
+    height: 1rem;
+    width: 100%;
+}
+.cc-scrollPanel-parent:has(> .cc-scrollPanel-bar-v) ~ .cc-scrollPanel-bar-h {
+    width: calc(100% - 1rem - var(--width));
+}
+
+.cc-scrollPanel-bar-h > span,
+.cc-scrollPanel-bar-v > span {
+    position: absolute;
+    background: currentColor;
+    border-radius: 1rem;
+    border: solid inherit var(--width);
+}
+.cc-scrollPanel-bar-v > span {
+    cursor: n-resize;
+    width: 100%;
+}
+.cc-scrollPanel-bar-h > span {
+    cursor: e-resize;
+    height: 100%;
+}
+
+.cc-scrollPanel-primary .cc-scrollPanel-bar-v,
+.cc-scrollPanel-primary .cc-scrollPanel-bar-h {
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+.cc-scrollPanel-primary .cc-scrollPanel-bar-v:hover,
+.cc-scrollPanel-primary .cc-scrollPanel-bar-h:hover {
+    border-color: var(--primary-2);
+    color: var(--primary-2);
+}
+.cc-scrollPanel-primary .cc-scrollPanel-bar-v:active,
+.cc-scrollPanel-primary .cc-scrollPanel-bar-h:active {
+    border-color: var(--tertiary-2);
+    color: var(--tertiary-2);
+}
+
+.cc-scrollPanel-success .cc-scrollPanel-bar-v,
+.cc-scrollPanel-success .cc-scrollPanel-bar-h {
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+.cc-scrollPanel-success .cc-scrollPanel-bar-v:hover,
+.cc-scrollPanel-success .cc-scrollPanel-bar-h:hover {
+    border-color: var(--success-1);
+    color: var(--success-1);
+}
+.cc-scrollPanel-success .cc-scrollPanel-bar-v:active,
+.cc-scrollPanel-success .cc-scrollPanel-bar-h:active {
+    border-color: var(--success-2);
+    color: var(--success-2);
+}
+
+.cc-scrollPanel-error .cc-scrollPanel-bar-v,
+.cc-scrollPanel-error .cc-scrollPanel-bar-h {
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+.cc-scrollPanel-error .cc-scrollPanel-bar-v:hover,
+.cc-scrollPanel-error .cc-scrollPanel-bar-h:hover {
+    border-color: var(--error-1);
+    color: var(--error-1);
+}
+.cc-scrollPanel-error .cc-scrollPanel-bar-v:active,
+.cc-scrollPanel-error .cc-scrollPanel-bar-h:active {
+    border-color: var(--error-2);
+    color: var(--error-2);
+}
+
+.cc-scrollPanel-warning .cc-scrollPanel-bar-v,
+.cc-scrollPanel-warning .cc-scrollPanel-bar-h {
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+.cc-scrollPanel-warning .cc-scrollPanel-bar-v:hover,
+.cc-scrollPanel-warning .cc-scrollPanel-bar-h:hover {
+    border-color: var(--warning-1);
+    color: var(--warning-1);
+}
+.cc-scrollPanel-warning .cc-scrollPanel-bar-v:active,
+.cc-scrollPanel-warning .cc-scrollPanel-bar-h:active {
+    border-color: var(--warning-2);
+    color: var(--warning-2);
+}
+
+.cc-scrollPanel-accent .cc-scrollPanel-bar-v,
+.cc-scrollPanel-accent .cc-scrollPanel-bar-h {
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+.cc-scrollPanel-accent .cc-scrollPanel-bar-v:hover,
+.cc-scrollPanel-accent .cc-scrollPanel-bar-h:hover {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+}
+.cc-scrollPanel-accent .cc-scrollPanel-bar-v:active,
+.cc-scrollPanel-accent .cc-scrollPanel-bar-h:active {
+    border-color: var(--accent-2);
+    color: var(--accent-2);
 }
 
 /* ==========================icons========================== */
@@ -2132,6 +2718,26 @@ textarea:placeholder-shown ~ .cc-textarea-label {
 .cc-shortArrow-up {
     rotate: 180deg;
     mask: url('../icons/ShortArrow.svg');
+}
+
+.cc-error {
+    mask: url('../icons/Error.svg');
+}
+
+.cc-cross {
+    mask: url('../icons/Cross.svg');
+}
+
+.cc-info {
+    mask: url('../icons/Information.svg');
+}
+
+.cc-success {
+    mask: url('../icons/Success.svg');
+}
+
+.cc-warning {
+    mask: url('../icons/Warning.svg');
 }
 
 .cc-icon-small,

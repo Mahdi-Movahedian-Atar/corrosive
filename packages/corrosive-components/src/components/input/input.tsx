@@ -20,7 +20,13 @@ export interface InputProps {
     raised?: boolean
     placeholder?: string
     floatingPlaceholder?: boolean
-    type?: 'text' | 'number' | 'password' | 'color' | HTMLInputTypeAttribute
+    type?:
+        | 'text'
+        | 'number'
+        | 'password'
+        | 'color'
+        | 'date'
+        | HTMLInputTypeAttribute
     min?: number
     max?: number
 }
@@ -65,7 +71,7 @@ export const Input = component$<InputProps>(
                             onChange && onChange(v.value)
                         })}
                         placeholder={placeholder}
-                        type={'range'}
+                        type={type}
                         value={v.value}
                     />
                     <Slot name={'right'} />

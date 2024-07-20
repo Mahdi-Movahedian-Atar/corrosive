@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
 import { Slider, SliderProps } from './slider'
-import {$, CSSProperties, QRL} from '@builder.io/qwik'
+import { $, CSSProperties, QRL } from '@builder.io/qwik'
 
 const meta: Meta<SliderProps> = {
     component: Slider,
@@ -25,7 +25,7 @@ export const Primary: Story = {
         tolerance: 1,
         className: undefined,
         style: { height: '100%', width: '100%' },
-        onChange: $((min,max) => console.log(min,max)),
+        onChange: $((min, max) => console.log(min, max)),
     },
     argTypes: {
         floatingValues: {

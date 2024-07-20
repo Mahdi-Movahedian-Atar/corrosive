@@ -99,20 +99,20 @@ export const Slider = component$<SliderProps>(
                         (sliderLocations[0] = sliderLocations[1])
 
                     onChange &&
-                    onChange(
-                        roundWithTolerance(
-                            sliderLocations[0] * valueSize + min,
-                            steps,
-                            tolerance,
-                            decimal
-                        ),
-                        roundWithTolerance(
-                            sliderLocations[1] * valueSize + min,
-                            steps,
-                            tolerance,
-                            decimal
+                        onChange(
+                            roundWithTolerance(
+                                sliderLocations[0] * valueSize + min,
+                                steps,
+                                tolerance,
+                                decimal
+                            ),
+                            roundWithTolerance(
+                                sliderLocations[1] * valueSize + min,
+                                steps,
+                                tolerance,
+                                decimal
+                            )
                         )
-                    )
                 }
 
                 if (isMouseDown[1] && type != 'minRange') {
@@ -176,20 +176,20 @@ export const Slider = component$<SliderProps>(
                         (sliderLocations[0] = sliderLocations[1])
 
                     onChange &&
-                    onChange(
-                        roundWithTolerance(
-                            sliderLocations[0] * valueSize + min,
-                            steps,
-                            tolerance,
-                            decimal
-                        ),
-                        roundWithTolerance(
-                            sliderLocations[1] * valueSize + min,
-                            steps,
-                            tolerance,
-                            decimal
+                        onChange(
+                            roundWithTolerance(
+                                sliderLocations[0] * valueSize + min,
+                                steps,
+                                tolerance,
+                                decimal
+                            ),
+                            roundWithTolerance(
+                                sliderLocations[1] * valueSize + min,
+                                steps,
+                                tolerance,
+                                decimal
+                            )
                         )
-                    )
                 }
 
                 if (isMouseDown[1] && type != 'minRange') {
@@ -209,20 +209,20 @@ export const Slider = component$<SliderProps>(
                         (sliderLocations[1] = sliderLocations[0])
 
                     onChange &&
-                    onChange(
-                        roundWithTolerance(
-                            sliderLocations[0] * valueSize + min,
-                            steps,
-                            tolerance,
-                            decimal
-                        ),
-                        roundWithTolerance(
-                            sliderLocations[1] * valueSize + min,
-                            steps,
-                            tolerance,
-                            decimal
+                        onChange(
+                            roundWithTolerance(
+                                sliderLocations[0] * valueSize + min,
+                                steps,
+                                tolerance,
+                                decimal
+                            ),
+                            roundWithTolerance(
+                                sliderLocations[1] * valueSize + min,
+                                steps,
+                                tolerance,
+                                decimal
+                            )
                         )
-                    )
                 }
             })
         )

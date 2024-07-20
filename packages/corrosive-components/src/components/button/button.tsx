@@ -7,7 +7,7 @@ export interface ButtonProps {
     variant?: 'solid' | 'outlined' | 'text'
     color?: 'success' | 'error' | 'warning' | 'accent' | 'primary'
     rounded?: boolean
-    onClick?: QRL<() => void>
+    onClick?: QRL<() => any>
     raised?: boolean
 }
 export const Button = component$<ButtonProps>(
