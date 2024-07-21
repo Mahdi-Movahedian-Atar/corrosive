@@ -2,33 +2,57 @@ import {
     $,
     component$,
     CSSProperties,
+    implicit$FirstArg,
     QRL,
     Slot,
+    useComputed$,
     useSignal,
+    useTask$,
     useVisibleTask$,
 } from '@builder.io/qwik'
+import { isBrowser } from '@builder.io/qwik/build'
 
-export interface SelectProps {
-    values?: { option: string; group: boolean }[]
-    value?: string
+export interface ExpandableProps {
     className?: string
-    disabled?: boolean
+    visible?: boolean
     style?: CSSProperties
     color?: 'success' | 'error' | 'warning' | 'accent' | 'primary'
     variant?: 'solid' | 'outlined' | 'text'
-    rounded?: boolean
-    onChange?: QRL<(value: string) => void>
-    raised?: boolean
-    placeholder?: string
-    floatingPlaceholder?: boolean
     maxHeight?: number
     direction?: 'down' | 'up' | 'left' | 'right'
 }
-export const Select = component$<SelectProps>(
+
+export function observerQrl<T>(
+    fn: QRL<() => T>,
+    ref: Element,
+    options: IntersectionObserverInit = {}
+): Promise<T> {
+    return new Promise((res) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    res(fn())
+                }
+            })
+        }, options)
+
+        if (ref) {
+            observer.observe(ref)
+        }
+
+        return () => {
+            if (ref) {
+                observer.unobserve(ref)
+            }
+        }
+    })
+}
+
+export const observer$ = implicit$FirstArg(observerQrl)
+
+export const Expandable = component$<ExpandableProps>(
     ({
-        values,
-        value,
-        disabled,
+        visible = false,
         className,
         style = {
             height: 'fit-content',
@@ -36,20 +60,12 @@ export const Select = component$<SelectProps>(
         },
         variant = 'outlined',
         color = 'primary',
-        rounded = false,
-        onChange,
-        raised,
-        placeholder,
-        floatingPlaceholder = true,
         maxHeight = 100,
         direction = 'down',
     }) => {
         const ref = useSignal<Element>()
-        const selectedOption = useSignal(value)
-        const showOptions = useSignal(false)
 
-        useVisibleTask$(({ track }) => {
-            track(() => showOptions.value)
+        useVisibleTask$(() => {
             const element = ref.value?.getBoundingClientRect()
             if (element == undefined) return
             const elementPosition = [
@@ -94,27 +110,9 @@ export const Select = component$<SelectProps>(
 
         return (
             <div class={className} style={style}>
-                <span
-                    class={`cc-select-${variant} cc-select-${disabled ? 'disabled' : color} ${rounded ? 'cc-select-rounded' : 'cc-select'} ${raised && 'cc-select-raised'}`}
-                >
-                    <Slot name={'left'} />
-                    <span
-                        onClick$={$(() => {
-                            if (disabled) return
-                            showOptions.value = !showOptions.value
-                        })}
-                    >
-                        <label>
-                            {selectedOption.value
-                                ? selectedOption.value
-                                : placeholder}
-                        </label>
-                        <i
-                            className={`${showOptions.value ? 'cc-shortArrow-down' : 'cc-shortArrow-left'} cc-icon-small`}
-                        />
-                    </span>
+                {visible && (
                     <div
-                        className={`cc-select-items cc-select-${variant}`}
+                        className={`cc-expandable cc-expandable-${variant} cc-expandable-${color}`}
                         style={{
                             maxHeight,
                             bottom: direction == 'up' ? '100%' : 'unset',
@@ -132,41 +130,11 @@ export const Select = component$<SelectProps>(
                                     ? 'translateY(-50%)'
                                     : 'unset',
                         }}
-                        hidden={!showOptions.value}
                         ref={ref}
                     >
-                        {values?.map((option) =>
-                            option.group ? (
-                                <span>
-                                    <b>{option.option}</b>
-                                </span>
-                            ) : (
-                                <div
-                                    onClick$={$(() => {
-                                        selectedOption.value = option.option
-                                        showOptions.value = false
-                                        onChange && onChange(option.option)
-                                    })}
-                                >
-                                    {option.option}
-                                </div>
-                            )
-                        )}
+                        <Slot />
                     </div>
-                    <Slot name={'right'} />
-                    {floatingPlaceholder && placeholder && (
-                        <label
-                            style={
-                                selectedOption.value == undefined
-                                    ? { visibility: 'hidden' }
-                                    : {}
-                            }
-                            class={`cc-select-label cc-select-${disabled ? 'disabled' : color}`}
-                        >
-                            {placeholder}
-                        </label>
-                    )}
-                </span>
+                )}
             </div>
         )
     }

@@ -1326,6 +1326,67 @@ textarea:placeholder-shown ~ .cc-textarea-label {
     display: inline-block;
 }
 
+/* ==========================expandable========================== */
+
+.cc-expandable {
+    border-radius: var(--corner);
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    border: var(--width) solid;
+    padding: var(--width);
+    cursor: pointer;
+    scrollbar-width: thin;
+    scrollbar-color: currentColor var(--secondary-0);
+    scrollbar-arrow-color: currentColor;
+    scrollbar-gutter: both-edges;
+}
+
+.cc-expandable-primary {
+    background: var(--primary-0);
+    border-color: var(--primary-0);
+    color: var(--primary-0);
+}
+
+.cc-expandable-success {
+    background: var(--success-0);
+    border-color: var(--success-0);
+    color: var(--success-0);
+}
+
+.cc-expandable-error {
+    background: var(--error-0);
+    border-color: var(--error-0);
+    color: var(--error-0);
+}
+
+.cc-expandable-warning {
+    background: var(--warning-0);
+    border-color: var(--warning-0);
+    color: var(--warning-0);
+}
+
+.cc-expandable-accent {
+    background: var(--accent-0);
+    border-color: var(--accent-0);
+    color: var(--accent-0);
+}
+
+.cc-expandable-solid {
+    color: var(--secondary-0);
+}
+
+.cc-expandable-text {
+    border-color: transparent;
+    background: transparent;
+}
+
+.cc-expandable-outlined {
+    background: transparent;
+}
+
 /* ==========================Slider========================== */
 
 .cc-slider {

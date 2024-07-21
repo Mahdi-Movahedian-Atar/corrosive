@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
-import { Select, type DropdownProps } from './select'
+import { Select, type SelectProps } from './select'
 import { $ } from '@builder.io/qwik'
 import { Button } from '../button/button'
 
-const meta: Meta<DropdownProps> = {
+const meta: Meta<SelectProps> = {
     component: Select,
 }
 
-type Story = StoryObj<DropdownProps>
+type Story = StoryObj<SelectProps>
 
 export default meta
 
@@ -59,7 +59,15 @@ export const Primary: Story = {
     render: (props) => (
         <div>
             {' '}
-            <Select {...props}>
+            <Select
+                {...props}
+                style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    padding: '500px',
+                }}
+            >
                 {' '}
                 <Button q:slot={'left'}>left</Button>{' '}
                 <Button q:slot={'right'}>left</Button>{' '}

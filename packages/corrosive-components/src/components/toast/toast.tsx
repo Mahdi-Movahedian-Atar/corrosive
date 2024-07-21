@@ -91,12 +91,26 @@ const ToastContent = component$<{
 export const Toast = component$<ToastProps>(
     ({
         contentComponent = $((toastMessage: ToastMessage) => (
-            <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    alignContent: 'center',
+                    justifyContent: 'center',
+                }}
+            >
                 <i
-                    style={{margin: 'auto'}}
+                    style={{ margin: 'auto' }}
                     class={`cc-icon-medium ${toastMessage.color == 'success' ? 'cc-success' : toastMessage.color == 'error' ? 'cc-error' : toastMessage.color == 'warning' ? 'cc-warning' : 'cc-info'}`}
                 />
-                <p style={{margin: 'auto', width: '10rem',marginLeft: '0.5rem'}}>{toastMessage.message}</p>
+                <p
+                    style={{
+                        margin: 'auto',
+                        width: '10rem',
+                        marginLeft: '0.5rem',
+                    }}
+                >
+                    {toastMessage.message}
+                </p>
             </div>
         )),
         alignX = 'right',

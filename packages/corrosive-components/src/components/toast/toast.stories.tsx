@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
 import { AddToast, Toast, ToastProps, ToastContext } from './toast'
 import { $, component$, useContextProvider, useSignal } from '@builder.io/qwik'
-import {Button} from "../button/button";
+import { Button } from '../button/button'
 
 const Test = component$<ToastProps>(({ alignX, alignY }) => {
     const toasts = useSignal<any>([])
     useContextProvider(ToastContext, toasts)
 
     return (
-        <div className="App" style={{ padding: '20px', display:"flex" }}>
+        <div className="App" style={{ padding: '20px', display: 'flex' }}>
             <h1>Toast Notification Example</h1>
             <Toast alignX={alignX} alignY={alignY}></Toast>
             <div className="toast-buttons">
