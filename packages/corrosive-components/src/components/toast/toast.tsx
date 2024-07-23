@@ -78,7 +78,7 @@ const ToastContent = component$<{
 
     return (
         <div
-            className={`cc-toast cc-toast-${toastMessage.color} cc-toast-${toastMessage.variant}`}
+            class={`cc-toast cc-toast-${toastMessage.color} cc-toast-${toastMessage.variant}`}
         >
             <ContentComponent {...toastMessage} />
             <button onClick$={$(() => onClose(id))}>
@@ -126,7 +126,7 @@ export const Toast = component$<ToastProps>(
 
         return (
             <div
-                className={'cc-toast-container'}
+                class={'cc-toast-container'}
                 style={{
                     top:
                         alignY == 'top'

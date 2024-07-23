@@ -4,7 +4,6 @@ import {
     CSSProperties,
     QRL,
     Slot,
-    useSignal,
 } from '@builder.io/qwik'
 
 export interface FileInputProps {

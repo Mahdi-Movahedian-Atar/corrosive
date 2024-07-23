@@ -1,16 +1,10 @@
 import {
-    $,
     component$,
     CSSProperties,
-    implicit$FirstArg,
-    QRL,
     Slot,
-    useComputed$,
     useSignal,
-    useTask$,
     useVisibleTask$,
 } from '@builder.io/qwik'
-import { isBrowser } from '@builder.io/qwik/build'
 
 export interface ExpandableProps {
     className?: string
@@ -21,34 +15,6 @@ export interface ExpandableProps {
     maxHeight?: number
     direction?: 'down' | 'up' | 'left' | 'right'
 }
-
-export function observerQrl<T>(
-    fn: QRL<() => T>,
-    ref: Element,
-    options: IntersectionObserverInit = {}
-): Promise<T> {
-    return new Promise((res) => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    res(fn())
-                }
-            })
-        }, options)
-
-        if (ref) {
-            observer.observe(ref)
-        }
-
-        return () => {
-            if (ref) {
-                observer.unobserve(ref)
-            }
-        }
-    })
-}
-
-export const observer$ = implicit$FirstArg(observerQrl)
 
 export const Expandable = component$<ExpandableProps>(
     ({
@@ -112,7 +78,7 @@ export const Expandable = component$<ExpandableProps>(
             <div class={className} style={style}>
                 {visible && (
                     <div
-                        className={`cc-expandable cc-expandable-${variant} cc-expandable-${color}`}
+                        class={`cc-expandable cc-expandable-${variant} cc-expandable-${color}`}
                         style={{
                             maxHeight,
                             bottom: direction == 'up' ? '100%' : 'unset',

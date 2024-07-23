@@ -110,11 +110,11 @@ export const Select = component$<SelectProps>(
                                 : placeholder}
                         </label>
                         <i
-                            className={`${showOptions.value ? 'cc-shortArrow-down' : 'cc-shortArrow-left'} cc-icon-small`}
+                            class={`${showOptions.value ? 'cc-shortArrow-down' : 'cc-shortArrow-left'} cc-icon-small`}
                         />
                     </span>
                     <div
-                        className={`cc-select-items cc-select-${variant}`}
+                        class={`cc-select-items cc-select-${variant}`}
                         style={{
                             maxHeight,
                             bottom: direction == 'up' ? '100%' : 'unset',

@@ -8,10 +8,10 @@ const Test = component$<ToastProps>(({ alignX, alignY }) => {
     useContextProvider(ToastContext, toasts)
 
     return (
-        <div className="App" style={{ padding: '20px', display: 'flex' }}>
+        <div style={{ padding: '20px', display: 'flex' }}>
             <h1>Toast Notification Example</h1>
             <Toast alignX={alignX} alignY={alignY}></Toast>
-            <div className="toast-buttons">
+            <div>
                 <Button
                     onClick={$(
                         async () =>

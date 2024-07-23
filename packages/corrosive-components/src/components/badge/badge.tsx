@@ -1,4 +1,4 @@
-import { component$, CSSProperties, Slot, useSignal } from '@builder.io/qwik'
+import { component$, CSSProperties, Slot } from '@builder.io/qwik'
 
 export interface BadgeProps {
     className?: string
@@ -39,7 +39,7 @@ export const Badge = component$<BadgeProps>(
         return (
             <div class={className} style={style}>
                 <span
-                    className={`cc-badge cc-badge-${position} cc-badge-${color} cc-badge-${variant}`}
+                    class={`cc-badge cc-badge-${position} cc-badge-${color} cc-badge-${variant}`}
                     style={thisStyles}
                 >
                     <Slot />

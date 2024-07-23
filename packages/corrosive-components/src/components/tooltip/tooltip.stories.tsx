@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
 import { Tooltip, TooltipProps } from './tooltip'
-import { Avatar } from './../avatar/avatar'
 import { Button } from '../button/button'
 
 const meta: Meta<TooltipProps> = {

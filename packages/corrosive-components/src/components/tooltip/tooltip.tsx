@@ -58,14 +58,14 @@ export const Tooltip = component$<TooltipProps>(
         return (
             <span
                 style={style}
-                className={className}
+                class={className}
                 onMouseEnter$={showTooltip}
                 onMouseLeave$={hideTooltip}
             >
                 <Slot />
                 {(isActive || visible.value) && (
                     <div
-                        className={`cc-tooltip cc-tooltip-${position} cc-tooltip-${disabled ? 'disabled' : color} cc-tooltip-${variant}`}
+                        class={`cc-tooltip cc-tooltip-${position} cc-tooltip-${disabled ? 'disabled' : color} cc-tooltip-${variant}`}
                     >
                         <Slot name={'content'} />
                     </div>

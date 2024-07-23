@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik'
 import { Slider, SliderProps } from './slider'
-import { $, CSSProperties, QRL } from '@builder.io/qwik'
+import { $ } from '@builder.io/qwik'
 
 const meta: Meta<SliderProps> = {
     component: Slider,

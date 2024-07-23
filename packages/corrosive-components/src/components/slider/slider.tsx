@@ -4,12 +4,8 @@ import {
     $,
     useOn,
     useSignal,
-    useVisibleTask$,
-    Slot,
     CSSProperties,
     QRL,
-    useTask$,
-    useStyles$,
 } from '@builder.io/qwik'
 
 export interface SliderProps {
@@ -80,7 +76,7 @@ export const Slider = component$<SliderProps>(
         useOn(
             'mousemove',
             $((event: Event) => {
-                ;(isMouseDown[0] || isMouseDown[1]) && event.preventDefault()
+                (isMouseDown[0] || isMouseDown[1]) && event.preventDefault()
                 const rect = thisRef.value!.getBoundingClientRect()
 
                 if (isMouseDown[0] && type != 'maxRange') {
@@ -151,7 +147,7 @@ export const Slider = component$<SliderProps>(
         useOn(
             'touchmove',
             $((event: TouchEvent) => {
-                ;(isMouseDown[0] || isMouseDown[1]) && event.preventDefault()
+                (isMouseDown[0] || isMouseDown[1]) && event.preventDefault()
                 const rect = thisRef.value!.getBoundingClientRect()
 
                 if (event.touches.length == 0) {
@@ -251,12 +247,12 @@ export const Slider = component$<SliderProps>(
         return (
             <div style={style} class={className}>
                 <div
-                    className={`${vertical ? 'cc-slider-vertical' : 'cc-slider'} cc-slider-${disabled ? 'disabled' : color}`}
+                    class={`${vertical ? 'cc-slider-vertical' : 'cc-slider'} cc-slider-${disabled ? 'disabled' : color}`}
                     ref={thisRef}
                 >
-                    <span className="cc-slider-track">
+                    <span class="cc-slider-track">
                         {steps &&
-                            Array.from({ length: steps }).map((_, index) => (
+                            Array.from({ length: steps }).map(() => (
                                 <span />
                             ))}
                     </span>
@@ -275,7 +271,7 @@ export const Slider = component$<SliderProps>(
                         }
                     >
                         <label
-                            className={'cc-slider-value'}
+                            class={'cc-slider-value'}
                             style={{
                                 visibility:
                                     type != 'maxRange' &&
@@ -299,9 +295,9 @@ export const Slider = component$<SliderProps>(
                                     (sliderLocations[1] - sliderLocations[0]) *
                                         steps
                                 ),
-                            }).map((_, index) => <span />)}
+                            }).map(() => <span />)}
                         <label
-                            className={'cc-slider-value'}
+                            class={'cc-slider-value'}
                             style={{
                                 visibility:
                                     type != 'minRange' &&
@@ -340,7 +336,7 @@ export const Slider = component$<SliderProps>(
                             onTouchEnd$={$(
                                 () => !disabled && (isMouseDown[0] = false)
                             )}
-                            onChange$={(e) => {
+                            onChange$={() => {
                                 isMouseDown[0] = false
 
                                 0 > sliderLocations[0] &&
@@ -371,7 +367,7 @@ export const Slider = component$<SliderProps>(
                             onTouchEnd$={$(
                                 () => !disabled && (isMouseDown[1] = false)
                             )}
-                            onChange$={(e) => {
+                            onChange$={() => {
                                 isMouseDown[1] = false
 
                                 1 < sliderLocations[1] &&
